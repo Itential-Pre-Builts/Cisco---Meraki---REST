@@ -1,0 +1,1516 @@
+{
+  "metadata": {
+    "name": "@itentialopensource/cisco-meraki-rest",
+    "version": "0.0.2",
+    "description": "This Pre-Built Automation bundle contains use cases around Cisco Meraki",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "gitlab",
+      "hostname": "gitlab.com",
+      "path": "itentialopensource/pre-built-automations"
+    },
+    "keywords": [
+      "Itential",
+      "IAP"
+    ],
+    "author": "Itential",
+    "IAPDependencies": {
+      "@itential/app-workflow_engine": "",
+      "@itentialopensource/adapter-meraki": "",
+      "@itential/app-json_forms": ""
+    },
+    "gitlabId": 52662758
+  },
+  "manifest": {
+    "bundleName": "Cisco - Meraki - REST",
+    "fingerprint": "6568cac97385230178b010f7",
+    "createdEpoch": "1701366473295",
+    "artifacts": [
+      {
+        "id": "Create Network - Meraki - REST",
+        "name": "Create Network - Meraki - REST",
+        "type": "workflow",
+        "location": "/bundles/workflows/Create Network - Meraki - REST.json",
+        "properties": {
+          "entryPoint": false
+        }
+      },
+      {
+        "id": "Claim Network Devices - Meraki - REST",
+        "name": "Claim Network Devices - Meraki - REST",
+        "type": "workflow",
+        "location": "/bundles/workflows/Claim Network Devices - Meraki - REST.json",
+        "properties": {
+          "entryPoint": false
+        }
+      },
+      {
+        "id": "65429b6faf3bfb0177c888eb",
+        "name": "Create Network and Claim Devices - Meraki",
+        "type": "transformation",
+        "location": "/bundles/transformations/Create Network and Claim Devices - Meraki.json",
+        "properties": {
+          "entryPoint": false
+        }
+      },
+      {
+        "id": "654159c9af3bfb0177c888e9",
+        "name": "Create Network - Meraki",
+        "type": "transformation",
+        "location": "/bundles/transformations/Create Network - Meraki.json",
+        "properties": {
+          "entryPoint": false
+        }
+      }
+    ]
+  },
+  "bundles": [
+    {
+      "type": "workflow",
+      "data": {
+        "name": "Create Network - Meraki - REST",
+        "tasks": {
+          "workflow_start": {
+            "name": "workflow_start",
+            "groups": [],
+            "nodeLocation": {
+              "x": -864,
+              "y": -108
+            },
+            "x": 0,
+            "y": 0.5
+          },
+          "workflow_end": {
+            "name": "workflow_end",
+            "groups": [],
+            "nodeLocation": {
+              "x": 216,
+              "y": -108
+            },
+            "x": 1,
+            "y": 0.5
+          },
+          "d3a4": {
+            "name": "getOrganizations",
+            "canvasName": "getOrganizations",
+            "summary": "List Organizations",
+            "description": "List the organizations that the user has privileges on",
+            "location": "Adapter",
+            "locationType": "Meraki",
+            "app": "Meraki",
+            "type": "automatic",
+            "displayName": "Meraki",
+            "variables": {
+              "incoming": {
+                "adapter_id": "$var.job.adapterId"
+              },
+              "outgoing": {
+                "result": ""
+              }
+            },
+            "actor": "Pronghorn",
+            "groups": [],
+            "nodeLocation": {
+              "x": -636,
+              "y": -108
+            }
+          },
+          "47b4": {
+            "name": "createOrganizationNetwork",
+            "canvasName": "createOrganizationNetwork",
+            "summary": "Create a network",
+            "description": "Create a network",
+            "location": "Adapter",
+            "locationType": "Meraki",
+            "app": "Meraki",
+            "type": "automatic",
+            "displayName": "Meraki",
+            "variables": {
+              "incoming": {
+                "organizationId": "$var.91a0.organizationId",
+                "createOrganizationNetwork": "$var.91a0.createNetworkPayload",
+                "adapter_id": "$var.job.adapterId"
+              },
+              "outgoing": {
+                "result": "$var.job.createNetworkSuccess"
+              },
+              "error": "$var.job.createNetworkError"
+            },
+            "actor": "Pronghorn",
+            "groups": [],
+            "nodeLocation": {
+              "x": -24,
+              "y": -108
+            }
+          },
+          "91a0": {
+            "name": "transformation",
+            "canvasName": "transformation",
+            "summary": "Create Network - Meraki JST",
+            "description": "Perform a JSON Transformation using the JST library.",
+            "location": "Application",
+            "locationType": null,
+            "app": "WorkFlowEngine",
+            "type": "operation",
+            "displayName": "WorkFlowEngine",
+            "variables": {
+              "incoming": {
+                "tr_id": "654159c9af3bfb0177c888e9",
+                "variableMap": {
+                  "networkName": "$var.job.networkName",
+                  "timeZone": "$var.job.timeZone",
+                  "tags": "$var.job.tags",
+                  "type": "$var.job.type",
+                  "disableMyMerakiCom": "$var.job.disableMyMerakiCom",
+                  "disableRemoteStatusPage": "$var.job.disableRemoteStatusPage",
+                  "listOrganizations": "$var.d3a4.result",
+                  "organizationName": "$var.job.organizationName"
+                },
+                "options": {
+                  "extractOutput": true,
+                  "validateIncoming": false,
+                  "revertToDefaultValue": true
+                }
+              },
+              "outgoing": {
+                "createNetworkPayload": null,
+                "organizationId": null
+              },
+              "decorators": []
+            },
+            "actor": "Pronghorn",
+            "groups": [],
+            "nodeLocation": {
+              "x": -336,
+              "y": -108
+            }
+          },
+          "925f": {
+            "name": "ViewData",
+            "canvasName": "ViewData",
+            "summary": "View Error",
+            "description": "Displays a message and runtime data to an operator. This can be used to request a decision, or used for acknowledgement only.",
+            "location": "Application",
+            "app": "WorkFlowEngine",
+            "displayName": "Tools",
+            "type": "manual",
+            "variables": {
+              "incoming": {
+                "header": "Could not create Meraki Network",
+                "message": "",
+                "body": "$var.47b4.error",
+                "variables": "",
+                "btn_success": "Retry",
+                "btn_failure": "Abort"
+              },
+              "outgoing": {}
+            },
+            "view": "/workflow_engine/task/ViewData",
+            "groups": [],
+            "nodeLocation": {
+              "x": -24,
+              "y": -204
+            }
+          }
+        },
+        "transitions": {
+          "workflow_start": {
+            "d3a4": {
+              "state": "success",
+              "type": "standard"
+            }
+          },
+          "workflow_end": {},
+          "d3a4": {
+            "91a0": {
+              "state": "success",
+              "type": "standard"
+            }
+          },
+          "47b4": {
+            "workflow_end": {
+              "state": "success",
+              "type": "standard"
+            },
+            "925f": {
+              "type": "standard",
+              "state": "error"
+            }
+          },
+          "91a0": {
+            "47b4": {
+              "state": "success",
+              "type": "standard"
+            }
+          },
+          "925f": {
+            "workflow_end": {
+              "type": "standard",
+              "state": "failure"
+            },
+            "47b4": {
+              "state": "success",
+              "type": "revert"
+            }
+          }
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "adapterId": {
+              "type": [
+                "array",
+                "boolean",
+                "null",
+                "number",
+                "object",
+                "string"
+              ]
+            },
+            "networkName": {
+              "$id": "networkName",
+              "type": "string",
+              "examples": [
+                "Network Name"
+              ]
+            },
+            "timeZone": {
+              "$id": "timeZone",
+              "type": "string",
+              "examples": [
+                "America/New_York"
+              ]
+            },
+            "tags": {
+              "$id": "tags",
+              "type": "string",
+              "examples": [
+                "tag1 tag2"
+              ]
+            },
+            "type": {
+              "$id": "type",
+              "type": "string",
+              "examples": [
+                "appliance"
+              ]
+            },
+            "disableMyMerakiCom": {
+              "$id": "disableMyMerakiCom",
+              "type": "boolean",
+              "examples": [
+                true,
+                false
+              ]
+            },
+            "disableRemoteStatusPage": {
+              "$id": "disableRemoteStatusPage",
+              "type": "boolean",
+              "examples": [
+                true,
+                false
+              ]
+            },
+            "organizationName": {
+              "$id": "organizationName",
+              "type": "string",
+              "examples": [
+                "Itential PreSales"
+              ]
+            }
+          },
+          "required": [
+            "adapterId",
+            "networkName",
+            "timeZone",
+            "tags",
+            "type",
+            "disableMyMerakiCom",
+            "disableRemoteStatusPage",
+            "organizationName"
+          ]
+        },
+        "outputSchema": {
+          "type": "object",
+          "properties": {
+            "adapterId": {
+              "type": [
+                "array",
+                "boolean",
+                "null",
+                "number",
+                "object",
+                "string"
+              ]
+            },
+            "networkName": {
+              "$id": "networkName",
+              "type": "string",
+              "examples": [
+                "Network Name"
+              ]
+            },
+            "timeZone": {
+              "$id": "timeZone",
+              "type": "string",
+              "examples": [
+                "America/New_York"
+              ]
+            },
+            "tags": {
+              "$id": "tags",
+              "type": "string",
+              "examples": [
+                "tag1 tag2"
+              ]
+            },
+            "type": {
+              "$id": "type",
+              "type": "string",
+              "examples": [
+                "appliance"
+              ]
+            },
+            "disableMyMerakiCom": {
+              "$id": "disableMyMerakiCom",
+              "type": "boolean",
+              "examples": [
+                true,
+                false
+              ]
+            },
+            "disableRemoteStatusPage": {
+              "$id": "disableRemoteStatusPage",
+              "type": "boolean",
+              "examples": [
+                true,
+                false
+              ]
+            },
+            "organizationName": {
+              "$id": "organizationName",
+              "type": "string",
+              "examples": [
+                "Itential PreSales"
+              ]
+            },
+            "_id": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{24}$"
+            },
+            "initiator": {
+              "type": "string"
+            },
+            "createNetworkSuccess": {
+              "title": "result",
+              "type": "object"
+            },
+            "createNetworkError": {
+              "type": [
+                "array",
+                "boolean",
+                "null",
+                "number",
+                "object",
+                "string"
+              ]
+            }
+          }
+        },
+        "type": "automation",
+        "font_size": 12,
+        "errorHandler": null,
+        "preAutomationTime": 0,
+        "sla": 0,
+        "last_updated": "2023-11-30T17:21:38.901Z",
+        "lastUpdatedVersion": "5.46.0-2023.1.19.0",
+        "created": "2023-10-26T16:11:29.674Z",
+        "created_by": {
+          "provenance": "CloudAAA",
+          "username": "mike.elrom@itential.com",
+          "firstname": "Michael",
+          "inactive": true
+        },
+        "createdVersion": "5.46.0-2023.1.21.0",
+        "canvasVersion": 3,
+        "last_updated_by": {
+          "provenance": "local_aaa",
+          "username": "admin@pronghorn",
+          "firstname": "admin",
+          "inactive": false
+        },
+        "tags": [],
+        "groups": [],
+        "migrationVersion": 2
+      }
+    },
+    {
+      "type": "workflow",
+      "data": {
+        "name": "Claim Network Devices - Meraki - REST",
+        "tasks": {
+          "workflow_start": {
+            "name": "workflow_start",
+            "groups": [],
+            "nodeLocation": {
+              "x": -864,
+              "y": 84
+            },
+            "x": 0,
+            "y": 0.5
+          },
+          "workflow_end": {
+            "name": "workflow_end",
+            "groups": [],
+            "nodeLocation": {
+              "x": -60,
+              "y": 84
+            },
+            "x": 1,
+            "y": 0.5
+          },
+          "180b": {
+            "name": "claimNetworkDevices",
+            "canvasName": "claimNetworkDevices",
+            "summary": "Claim a device into a network",
+            "description": "Claim a device into a network",
+            "location": "Adapter",
+            "locationType": "Meraki",
+            "app": "Meraki",
+            "type": "automatic",
+            "displayName": "Meraki",
+            "variables": {
+              "incoming": {
+                "networkId": "$var.job.networkId",
+                "claimNetworkDevices": "$var.b364.object",
+                "adapter_id": "$var.job.adapterId"
+              },
+              "outgoing": {
+                "result": "$var.job.claimNetworkDevicesResult"
+              },
+              "error": "$var.job.claimNetworkDevicesError"
+            },
+            "actor": "Pronghorn",
+            "groups": [],
+            "nodeLocation": {
+              "x": -312,
+              "y": 84
+            }
+          },
+          "0952": {
+            "name": "ViewData",
+            "canvasName": "ViewData",
+            "summary": "View Error",
+            "description": "Displays a message and runtime data to an operator. This can be used to request a decision, or used for acknowledgement only.",
+            "location": "Application",
+            "app": "WorkFlowEngine",
+            "displayName": "Tools",
+            "type": "manual",
+            "variables": {
+              "incoming": {
+                "header": "Could not claim Meraki Device(s)",
+                "message": "",
+                "body": "$var.180b.error",
+                "variables": "",
+                "btn_success": "Retry",
+                "btn_failure": "Abort"
+              },
+              "outgoing": {}
+            },
+            "view": "/workflow_engine/task/ViewData",
+            "groups": [],
+            "nodeLocation": {
+              "x": -312,
+              "y": -24
+            }
+          },
+          "b364": {
+            "name": "setObjectKey",
+            "canvasName": "setObjectKey",
+            "summary": "Claim Network Devices Payload",
+            "description": "Set an object key",
+            "location": "Application",
+            "locationType": null,
+            "app": "WorkFlowEngine",
+            "type": "automatic",
+            "displayName": "Object",
+            "variables": {
+              "incoming": {
+                "obj": {},
+                "path": [
+                  "serials"
+                ],
+                "value": "$var.job.serials"
+              },
+              "outgoing": {
+                "object": ""
+              }
+            },
+            "actor": "Pronghorn",
+            "groups": [],
+            "nodeLocation": {
+              "x": -624,
+              "y": 84
+            }
+          }
+        },
+        "transitions": {
+          "workflow_start": {
+            "b364": {
+              "state": "success",
+              "type": "standard"
+            }
+          },
+          "workflow_end": {},
+          "180b": {
+            "workflow_end": {
+              "state": "success",
+              "type": "standard"
+            },
+            "0952": {
+              "type": "standard",
+              "state": "error"
+            }
+          },
+          "0952": {
+            "workflow_end": {
+              "type": "standard",
+              "state": "failure"
+            },
+            "180b": {
+              "type": "revert",
+              "state": "success"
+            }
+          },
+          "b364": {
+            "180b": {
+              "state": "success",
+              "type": "standard"
+            }
+          }
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "networkId": {
+              "title": "networkId",
+              "type": "string"
+            },
+            "adapterId": {
+              "type": [
+                "array",
+                "boolean",
+                "null",
+                "number",
+                "object",
+                "string"
+              ]
+            },
+            "serials": {
+              "title": "value",
+              "type": [
+                "string",
+                "number",
+                "integer",
+                "object",
+                "array",
+                "boolean"
+              ],
+              "examples": [
+                {
+                  "third": "last"
+                }
+              ]
+            }
+          },
+          "required": [
+            "networkId",
+            "adapterId",
+            "serials"
+          ]
+        },
+        "outputSchema": {
+          "type": "object",
+          "properties": {
+            "networkId": {
+              "title": "networkId",
+              "type": "string"
+            },
+            "adapterId": {
+              "type": [
+                "array",
+                "boolean",
+                "null",
+                "number",
+                "object",
+                "string"
+              ]
+            },
+            "serials": {
+              "title": "value",
+              "type": [
+                "string",
+                "number",
+                "integer",
+                "object",
+                "array",
+                "boolean"
+              ],
+              "examples": [
+                {
+                  "third": "last"
+                }
+              ]
+            },
+            "_id": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{24}$"
+            },
+            "initiator": {
+              "type": "string"
+            },
+            "claimNetworkDevicesResult": {
+              "title": "result",
+              "type": "object"
+            },
+            "claimNetworkDevicesError": {
+              "type": [
+                "array",
+                "boolean",
+                "null",
+                "number",
+                "object",
+                "string"
+              ]
+            }
+          }
+        },
+        "type": "automation",
+        "font_size": 12,
+        "errorHandler": null,
+        "preAutomationTime": 0,
+        "sla": 0,
+        "last_updated": "2023-11-30T17:34:54.579Z",
+        "lastUpdatedVersion": "5.46.0-2023.1.19.0",
+        "created": "2023-11-01T16:50:17.057Z",
+        "created_by": {
+          "provenance": "CloudAAA",
+          "username": "mike.elrom@itential.com",
+          "firstname": "Michael",
+          "inactive": true
+        },
+        "createdVersion": "5.46.0-2023.1.21.0",
+        "canvasVersion": 3,
+        "last_updated_by": {
+          "provenance": "local_aaa",
+          "username": "admin@pronghorn",
+          "firstname": "admin",
+          "inactive": false
+        },
+        "tags": [],
+        "groups": [],
+        "migrationVersion": 2
+      }
+    },
+    {
+      "type": "transformation",
+      "data": {
+        "_id": "65429b6faf3bfb0177c888eb",
+        "name": "Create Network and Claim Devices - Meraki",
+        "description": "",
+        "incoming": [
+          {
+            "$id": "formData",
+            "type": "object",
+            "properties": {
+              "organizationName": {
+                "type": "string",
+                "examples": [
+                  "Itential Workshops"
+                ]
+              },
+              "type": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "examples": [
+                    "switch"
+                  ]
+                }
+              },
+              "serials": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "examples": [
+                    "Q4AB-J4J8-6BJR"
+                  ]
+                }
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "disableMyMerakiCom": {
+                    "type": "boolean",
+                    "examples": [
+                      true,
+                      false
+                    ]
+                  },
+                  "disableRemoteStatusPage": {
+                    "type": "boolean",
+                    "examples": [
+                      true,
+                      false
+                    ]
+                  }
+                },
+                "required": []
+              },
+              "networkName": {
+                "type": "string",
+                "examples": [
+                  "test network name"
+                ]
+              },
+              "timeZone": {
+                "type": "string",
+                "examples": [
+                  "America/Los_Angeles"
+                ]
+              },
+              "tags": {
+                "type": "string",
+                "examples": [
+                  "US"
+                ]
+              }
+            },
+            "required": []
+          }
+        ],
+        "outgoing": [
+          {
+            "$id": "type",
+            "type": "string",
+            "examples": [
+              "switch"
+            ]
+          },
+          {
+            "$id": "organizationName",
+            "type": "string",
+            "examples": [
+              "Itential PreSales"
+            ]
+          },
+          {
+            "$id": "serials",
+            "type": "array"
+          },
+          {
+            "$id": "disableMyMerakiCom",
+            "type": "boolean",
+            "examples": [
+              true,
+              false
+            ]
+          },
+          {
+            "$id": "disableRemoteStatusPage",
+            "type": "boolean",
+            "examples": [
+              true,
+              false
+            ]
+          },
+          {
+            "$id": "networkName",
+            "type": "string",
+            "examples": [
+              "Test"
+            ]
+          },
+          {
+            "$id": "timeZone",
+            "type": "string",
+            "examples": [
+              "America/Chicago"
+            ]
+          },
+          {
+            "$id": "tags",
+            "type": "string",
+            "examples": [
+              "tag1 tag2"
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "id": 1,
+            "type": "assign",
+            "from": {
+              "location": "incoming",
+              "name": "formData",
+              "ptr": "/networkName"
+            },
+            "to": {
+              "location": "outgoing",
+              "name": "networkName",
+              "ptr": ""
+            },
+            "context": "#"
+          },
+          {
+            "id": 2,
+            "type": "assign",
+            "from": {
+              "location": "incoming",
+              "name": "formData",
+              "ptr": "/timeZone"
+            },
+            "to": {
+              "location": "outgoing",
+              "name": "timeZone",
+              "ptr": ""
+            },
+            "context": "#"
+          },
+          {
+            "id": 3,
+            "type": "assign",
+            "from": {
+              "location": "incoming",
+              "name": "formData",
+              "ptr": "/tags"
+            },
+            "to": {
+              "location": "outgoing",
+              "name": "tags",
+              "ptr": ""
+            },
+            "context": "#"
+          },
+          {
+            "id": 7,
+            "type": "assign",
+            "from": {
+              "location": "incoming",
+              "name": "formData",
+              "ptr": "/organizationName"
+            },
+            "to": {
+              "location": "outgoing",
+              "name": "organizationName",
+              "ptr": ""
+            },
+            "context": "#"
+          },
+          {
+            "id": 11,
+            "type": "assign",
+            "from": {
+              "location": "incoming",
+              "name": "formData",
+              "ptr": "/options/disableMyMerakiCom"
+            },
+            "to": {
+              "location": "outgoing",
+              "name": "disableMyMerakiCom",
+              "ptr": ""
+            },
+            "context": "#"
+          },
+          {
+            "id": 12,
+            "type": "assign",
+            "from": {
+              "location": "incoming",
+              "name": "formData",
+              "ptr": "/options/disableRemoteStatusPage"
+            },
+            "to": {
+              "location": "outgoing",
+              "name": "disableRemoteStatusPage",
+              "ptr": ""
+            },
+            "context": "#"
+          },
+          {
+            "id": 13,
+            "type": "assign",
+            "from": {
+              "location": "incoming",
+              "name": "formData",
+              "ptr": "/serials"
+            },
+            "to": {
+              "location": "outgoing",
+              "name": "serials",
+              "ptr": ""
+            },
+            "context": "#"
+          },
+          {
+            "id": 15,
+            "type": "assign",
+            "from": {
+              "location": "incoming",
+              "name": "formData",
+              "ptr": "/type"
+            },
+            "to": {
+              "location": "method",
+              "name": 14,
+              "ptr": "/args/0/value"
+            },
+            "context": "#"
+          },
+          {
+            "id": 14,
+            "type": "method",
+            "library": "Array",
+            "method": "join",
+            "args": [
+              null,
+              " "
+            ],
+            "view": {
+              "row": 1,
+              "col": 1
+            },
+            "context": "#"
+          },
+          {
+            "id": 16,
+            "type": "assign",
+            "from": {
+              "location": "method",
+              "name": 14,
+              "ptr": "/return"
+            },
+            "to": {
+              "location": "outgoing",
+              "name": "type",
+              "ptr": ""
+            },
+            "context": "#"
+          }
+        ],
+        "functions": [],
+        "comments": [],
+        "view": {
+          "col": 2,
+          "row": 5
+        },
+        "created": "2023-11-30T14:03:52.994Z",
+        "createdBy": {
+          "_id": "652054b92c281c82e5b4c8b4",
+          "provenance": "local_aaa",
+          "username": "admin@pronghorn"
+        },
+        "lastUpdated": "2023-11-30T14:03:52.994Z",
+        "lastUpdatedBy": {
+          "_id": "652054b92c281c82e5b4c8b4",
+          "provenance": "local_aaa",
+          "username": "admin@pronghorn"
+        },
+        "version": "4.1.2-2023.1.10",
+        "tags": []
+      }
+    },
+    {
+      "type": "transformation",
+      "data": {
+        "_id": "654159c9af3bfb0177c888e9",
+        "name": "Create Network - Meraki",
+        "description": "",
+        "incoming": [
+          {
+            "$id": "networkName",
+            "type": "string",
+            "examples": [
+              "Network Name"
+            ]
+          },
+          {
+            "$id": "timeZone",
+            "type": "string",
+            "examples": [
+              "America/New_York"
+            ]
+          },
+          {
+            "$id": "tags",
+            "type": "string",
+            "examples": [
+              "tag1 tag2"
+            ]
+          },
+          {
+            "$id": "type",
+            "type": "string",
+            "examples": [
+              "appliance"
+            ]
+          },
+          {
+            "$id": "disableMyMerakiCom",
+            "type": "boolean",
+            "examples": [
+              true,
+              false
+            ]
+          },
+          {
+            "$id": "disableRemoteStatusPage",
+            "type": "boolean",
+            "examples": [
+              true,
+              false
+            ]
+          },
+          {
+            "$id": "listOrganizations",
+            "type": "object",
+            "properties": {
+              "response": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "examples": [
+                        "1076949"
+                      ]
+                    },
+                    "name": {
+                      "type": "string",
+                      "examples": [
+                        "Itential PreSales"
+                      ]
+                    }
+                  },
+                  "required": []
+                }
+              }
+            },
+            "required": []
+          },
+          {
+            "$id": "organizationName",
+            "type": "string",
+            "examples": [
+              "Itential PreSales"
+            ]
+          }
+        ],
+        "outgoing": [
+          {
+            "$id": "createNetworkPayload",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "examples": [
+                  "Dev Test 1"
+                ]
+              },
+              "timeZone": {
+                "type": "string",
+                "examples": [
+                  "America/New_York"
+                ]
+              },
+              "tags": {
+                "type": "string",
+                "examples": [
+                  " test2 test "
+                ]
+              },
+              "type": {
+                "type": "string",
+                "examples": [
+                  "appliance"
+                ]
+              },
+              "disableMyMerakiCom": {
+                "type": "boolean",
+                "examples": [
+                  true,
+                  false
+                ]
+              },
+              "disableRemoteStatusPage": {
+                "type": "boolean",
+                "examples": [
+                  true,
+                  false
+                ]
+              }
+            },
+            "required": []
+          },
+          {
+            "$id": "organizationId",
+            "type": "string",
+            "examples": [
+              "123456"
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "id": 14,
+            "type": "assign",
+            "from": {
+              "location": "incoming",
+              "name": "networkName",
+              "ptr": ""
+            },
+            "to": {
+              "location": "outgoing",
+              "name": "createNetworkPayload",
+              "ptr": "/name"
+            },
+            "context": "#"
+          },
+          {
+            "id": 15,
+            "type": "assign",
+            "from": {
+              "location": "incoming",
+              "name": "timeZone",
+              "ptr": ""
+            },
+            "to": {
+              "location": "outgoing",
+              "name": "createNetworkPayload",
+              "ptr": "/timeZone"
+            },
+            "context": "#"
+          },
+          {
+            "id": 16,
+            "type": "assign",
+            "from": {
+              "location": "incoming",
+              "name": "tags",
+              "ptr": ""
+            },
+            "to": {
+              "location": "outgoing",
+              "name": "createNetworkPayload",
+              "ptr": "/tags"
+            },
+            "context": "#"
+          },
+          {
+            "id": 17,
+            "type": "assign",
+            "from": {
+              "location": "incoming",
+              "name": "type",
+              "ptr": ""
+            },
+            "to": {
+              "location": "outgoing",
+              "name": "createNetworkPayload",
+              "ptr": "/type"
+            },
+            "context": "#"
+          },
+          {
+            "id": 18,
+            "type": "assign",
+            "from": {
+              "location": "incoming",
+              "name": "disableMyMerakiCom",
+              "ptr": ""
+            },
+            "to": {
+              "location": "outgoing",
+              "name": "createNetworkPayload",
+              "ptr": "/disableMyMerakiCom"
+            },
+            "context": "#"
+          },
+          {
+            "id": 19,
+            "type": "assign",
+            "from": {
+              "location": "incoming",
+              "name": "disableRemoteStatusPage",
+              "ptr": ""
+            },
+            "to": {
+              "location": "outgoing",
+              "name": "createNetworkPayload",
+              "ptr": "/disableRemoteStatusPage"
+            },
+            "context": "#"
+          },
+          {
+            "id": 21,
+            "type": "assign",
+            "from": {
+              "location": "incoming",
+              "name": "listOrganizations",
+              "ptr": "/response"
+            },
+            "to": {
+              "location": "method",
+              "name": 20,
+              "ptr": "/args/0/value"
+            },
+            "context": "#"
+          },
+          {
+            "id": 22,
+            "type": "assign",
+            "from": {
+              "location": "incoming",
+              "name": "organizationName",
+              "ptr": ""
+            },
+            "to": {
+              "location": "method",
+              "name": 20,
+              "ptr": "/args/2/value"
+            },
+            "context": "#"
+          },
+          {
+            "id": 20,
+            "type": "method",
+            "library": "Array",
+            "method": "find",
+            "args": [
+              null,
+              "findOrganization",
+              null
+            ],
+            "view": {
+              "row": 4,
+              "col": 1
+            },
+            "context": "#"
+          },
+          {
+            "id": 23,
+            "type": "assign",
+            "from": {
+              "location": "method",
+              "name": 20,
+              "ptr": "/return"
+            },
+            "to": {
+              "location": "method",
+              "name": 11,
+              "ptr": "/args/0/value"
+            },
+            "context": "#"
+          },
+          {
+            "id": 11,
+            "type": "method",
+            "library": "Object",
+            "method": "getProperty",
+            "args": [
+              null,
+              "id"
+            ],
+            "view": {
+              "row": 4,
+              "col": 2
+            },
+            "context": "#"
+          },
+          {
+            "id": 13,
+            "type": "assign",
+            "from": {
+              "location": "method",
+              "name": 11,
+              "ptr": "/return"
+            },
+            "to": {
+              "location": "outgoing",
+              "name": "organizationId",
+              "ptr": ""
+            },
+            "context": "#"
+          }
+        ],
+        "functions": [
+          {
+            "incoming": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "examples": [
+                      "1076949"
+                    ]
+                  },
+                  "name": {
+                    "type": "string",
+                    "examples": [
+                      "Itential PreSales"
+                    ]
+                  }
+                },
+                "required": [],
+                "$id": "element"
+              },
+              {
+                "title": "index",
+                "type": "number",
+                "optional": true,
+                "$id": "index"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "examples": [
+                        "1076949"
+                      ]
+                    },
+                    "name": {
+                      "type": "string",
+                      "examples": [
+                        "Itential PreSales"
+                      ]
+                    }
+                  },
+                  "required": []
+                },
+                "$id": "array",
+                "optional": true
+              },
+              {
+                "$id": "thisArg",
+                "type": "object",
+                "properties": {
+                  "0_organizationName": {
+                    "$id": "organizationName",
+                    "type": "string",
+                    "examples": [
+                      "Test"
+                    ]
+                  }
+                },
+                "isContext": true,
+                "isIndexed": true
+              }
+            ],
+            "outgoing": [
+              {
+                "title": "return",
+                "type": "boolean",
+                "$id": "return"
+              }
+            ],
+            "steps": [
+              {
+                "id": 5,
+                "type": "assign",
+                "from": {
+                  "location": "incoming",
+                  "name": "element",
+                  "ptr": "/name"
+                },
+                "to": {
+                  "location": "method",
+                  "name": 1,
+                  "ptr": "/args/0/value"
+                },
+                "context": "#"
+              },
+              {
+                "id": 6,
+                "type": "assign",
+                "from": {
+                  "location": "incoming",
+                  "name": "thisArg",
+                  "ptr": "/0_organizationName"
+                },
+                "to": {
+                  "location": "method",
+                  "name": 1,
+                  "ptr": "/args/1/value"
+                },
+                "context": "#"
+              },
+              {
+                "id": 1,
+                "type": "method",
+                "library": "Equality",
+                "method": "equality",
+                "args": [
+                  null,
+                  null
+                ],
+                "view": {
+                  "row": 1,
+                  "col": 1
+                },
+                "context": "#"
+              },
+              {
+                "id": 4,
+                "type": "assign",
+                "from": {
+                  "location": "method",
+                  "name": 1,
+                  "ptr": "/return"
+                },
+                "to": {
+                  "location": "outgoing",
+                  "name": "return",
+                  "ptr": ""
+                },
+                "context": "#"
+              }
+            ],
+            "functions": [],
+            "name": "findOrganization",
+            "view": {
+              "col": 1,
+              "row": 4
+            },
+            "id": "findOrganization",
+            "comments": []
+          }
+        ],
+        "comments": [],
+        "view": {
+          "col": 2,
+          "row": 5
+        },
+        "created": "2023-11-30T14:03:53.037Z",
+        "createdBy": {
+          "_id": "652054b92c281c82e5b4c8b4",
+          "provenance": "local_aaa",
+          "username": "admin@pronghorn"
+        },
+        "lastUpdated": "2023-11-30T14:03:53.037Z",
+        "lastUpdatedBy": {
+          "_id": "652054b92c281c82e5b4c8b4",
+          "provenance": "local_aaa",
+          "username": "admin@pronghorn"
+        },
+        "version": "4.1.2-2023.1.10",
+        "tags": []
+      }
+    }
+  ],
+  "readme": "# Cisco - Meraki - REST\n\n## Overview\n\nThis Pre-Built Automation bundle contains use cases around Cisco Meraki\n\n\n<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/cisco-meraki-rest/-/blob/master/documentation/Create Network - Meraki - REST.md' target='_blank'>Create Network - Meraki - REST</a>\n\n<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/cisco-meraki-rest/-/blob/master/documentation/Claim Network Devices - Meraki - REST.md' target='_blank'>Claim Network Devices - Meraki - REST</a>\n\n\n\n## External Dependencies\n\nNo external dependencies required to run this Workflow Project.\n\n## Adapters\n\n<table>\n  <thead>\n    <tr>\n      <th>Name</th>\n      <th>Version</th>\n      <th>Configuration Notes</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><a href=\"https://gitlab.com/itentialopensource/adapters/sd-wan/adapter-meraki\">adapter-meraki</a></td>\n      <td>1.3.0</td>\n      <td></td>\n    </tr>\n  </tbody>\n</table>"
+}

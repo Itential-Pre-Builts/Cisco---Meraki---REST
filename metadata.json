@@ -1,0 +1,92 @@
+{
+  "name": "Cisco - Meraki - REST",
+  "webName": "",
+  "type": "Workflow Project",
+  "vendor": "Cisco",
+  "product": "Meraki",
+  "method": "REST",
+  "osVersions": [],
+  "apiVersions": [],
+  "iapVersions": [
+    "2023.1"
+  ],
+  "domains": [
+    "SD-WAN (SASE)"
+  ],
+  "tags": [],
+  "useCases": [],
+  "deprecated": {
+    "isDeprecated": false,
+    "deprecatedOn": "",
+    "endOfLife": "",
+    "replacedBy": {
+      "name": "",
+      "overview": "",
+      "repoLink": "",
+      "docLink": "",
+      "webLink": "",
+      "isProductFeature": false
+    }
+  },
+  "brokerSince": "",
+  "documentation": {
+    "storeLink": "",
+    "repoLink": "https://gitlab.com/itentialopensource/pre-built-automations/staging/cisco-meraki-rest",
+    "npmLink": "https://www.npmjs.com/package/@itentialopensource/cisco-meraki-rest",
+    "docLink": "",
+    "demoLinks": [],
+    "faqLink": "",
+    "contributeLink": "",
+    "issueLink": "",
+    "webLink": "",
+    "vendorLink": "",
+    "productLink": "",
+    "apiLinks": []
+  },
+  "assets": [
+    {
+      "name": "Create Network - Meraki - REST",
+      "webName": "Create Network - Meraki",
+      "assetType": "Workflow",
+      "overview": "Create an organization network",
+      "iapVersions": [
+        "2023.1"
+      ],
+      "exampleInput": "",
+      "exampleOutput": ""
+    },
+    {
+      "name": "Claim Network Devices - Meraki - REST",
+      "webName": "Claim Network Devices - Meraki",
+      "assetType": "Workflow",
+      "overview": "Claim a device into a network",
+      "iapVersions": [
+        "2023.1"
+      ],
+      "exampleInput": "",
+      "exampleOutput": ""
+    }
+  ],
+  "relatedItems": {
+    "adapters": [
+      {
+        "name": "adapter-meraki",
+        "webName": "Cisco Meraki",
+        "overview": "Cisco Meraki",
+        "isDependency": true,
+        "repoLink": "https://gitlab.com/itentialopensource/adapters/sd-wan/adapter-meraki",
+        "docLink": "https://docs.itential.com/opensource/docs/meraki",
+        "webLink": "https://www.itential.com/adapters/cisco-meraki/",
+        "configurationNotes": "",
+        "versions": [
+          "1.3.0"
+        ]
+      }
+    ],
+    "integrations": [],
+    "ecosystemApplications": [],
+    "workflowProjects": [],
+    "transformationProjects": [],
+    "exampleProjects": []
+  }
+}

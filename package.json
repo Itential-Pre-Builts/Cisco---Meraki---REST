@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This Pre-Built Automation bundle contains use cases around Cisco Meraki",
   "scripts": {
     "setup-hooks": "sh ./scripts/setup-hooks.sh",
@@ -23,7 +23,7 @@
   "author": "Itential",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@itential-tools/iap-cypress-testing-library": "4.0.3",
+    "@itential-tools/iap-cypress-testing-library": "^4.1.0",
     "ajv": "6.10.0",
     "better-ajv-errors": "^0.6.1",
     "cypress": "^9.7.0",
