@@ -1,0 +1,488 @@
+{
+  "_id": "654159c9af3bfb0177c888e9",
+  "name": "Create Network - Meraki",
+  "description": "",
+  "incoming": [
+    {
+      "$id": "networkName",
+      "type": "string",
+      "examples": [
+        "Network Name"
+      ]
+    },
+    {
+      "$id": "timeZone",
+      "type": "string",
+      "examples": [
+        "America/New_York"
+      ]
+    },
+    {
+      "$id": "tags",
+      "type": "string",
+      "examples": [
+        "tag1 tag2"
+      ]
+    },
+    {
+      "$id": "type",
+      "type": "string",
+      "examples": [
+        "appliance"
+      ]
+    },
+    {
+      "$id": "disableMyMerakiCom",
+      "type": "boolean",
+      "examples": [
+        true,
+        false
+      ]
+    },
+    {
+      "$id": "disableRemoteStatusPage",
+      "type": "boolean",
+      "examples": [
+        true,
+        false
+      ]
+    },
+    {
+      "$id": "listOrganizations",
+      "type": "object",
+      "properties": {
+        "response": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "examples": [
+                  "1076949"
+                ]
+              },
+              "name": {
+                "type": "string",
+                "examples": [
+                  "Itential PreSales"
+                ]
+              }
+            },
+            "required": []
+          }
+        }
+      },
+      "required": []
+    },
+    {
+      "$id": "organizationName",
+      "type": "string",
+      "examples": [
+        "Itential PreSales"
+      ]
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "createNetworkPayload",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "examples": [
+            "Dev Test 1"
+          ]
+        },
+        "timeZone": {
+          "type": "string",
+          "examples": [
+            "America/New_York"
+          ]
+        },
+        "tags": {
+          "type": "string",
+          "examples": [
+            " test2 test "
+          ]
+        },
+        "type": {
+          "type": "string",
+          "examples": [
+            "appliance"
+          ]
+        },
+        "disableMyMerakiCom": {
+          "type": "boolean",
+          "examples": [
+            true,
+            false
+          ]
+        },
+        "disableRemoteStatusPage": {
+          "type": "boolean",
+          "examples": [
+            true,
+            false
+          ]
+        }
+      },
+      "required": []
+    },
+    {
+      "$id": "organizationId",
+      "type": "string",
+      "examples": [
+        "123456"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": 14,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "networkName",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "createNetworkPayload",
+        "ptr": "/name"
+      },
+      "context": "#"
+    },
+    {
+      "id": 15,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "timeZone",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "createNetworkPayload",
+        "ptr": "/timeZone"
+      },
+      "context": "#"
+    },
+    {
+      "id": 16,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "tags",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "createNetworkPayload",
+        "ptr": "/tags"
+      },
+      "context": "#"
+    },
+    {
+      "id": 17,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "type",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "createNetworkPayload",
+        "ptr": "/type"
+      },
+      "context": "#"
+    },
+    {
+      "id": 18,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "disableMyMerakiCom",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "createNetworkPayload",
+        "ptr": "/disableMyMerakiCom"
+      },
+      "context": "#"
+    },
+    {
+      "id": 19,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "disableRemoteStatusPage",
+        "ptr": ""
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "createNetworkPayload",
+        "ptr": "/disableRemoteStatusPage"
+      },
+      "context": "#"
+    },
+    {
+      "id": 21,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "listOrganizations",
+        "ptr": "/response"
+      },
+      "to": {
+        "location": "method",
+        "name": 20,
+        "ptr": "/args/0/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 22,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "organizationName",
+        "ptr": ""
+      },
+      "to": {
+        "location": "method",
+        "name": 20,
+        "ptr": "/args/2/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 20,
+      "type": "method",
+      "library": "Array",
+      "method": "find",
+      "args": [
+        null,
+        "findOrganization",
+        null
+      ],
+      "view": {
+        "row": 4,
+        "col": 1
+      },
+      "context": "#"
+    },
+    {
+      "id": 23,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 20,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "method",
+        "name": 11,
+        "ptr": "/args/0/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 11,
+      "type": "method",
+      "library": "Object",
+      "method": "getProperty",
+      "args": [
+        null,
+        "id"
+      ],
+      "view": {
+        "row": 4,
+        "col": 2
+      },
+      "context": "#"
+    },
+    {
+      "id": 13,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 11,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "organizationId",
+        "ptr": ""
+      },
+      "context": "#"
+    }
+  ],
+  "functions": [
+    {
+      "incoming": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "examples": [
+                "1076949"
+              ]
+            },
+            "name": {
+              "type": "string",
+              "examples": [
+                "Itential PreSales"
+              ]
+            }
+          },
+          "required": [],
+          "$id": "element"
+        },
+        {
+          "title": "index",
+          "type": "number",
+          "optional": true,
+          "$id": "index"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "examples": [
+                  "1076949"
+                ]
+              },
+              "name": {
+                "type": "string",
+                "examples": [
+                  "Itential PreSales"
+                ]
+              }
+            },
+            "required": []
+          },
+          "$id": "array",
+          "optional": true
+        },
+        {
+          "$id": "thisArg",
+          "type": "object",
+          "properties": {
+            "0_organizationName": {
+              "$id": "organizationName",
+              "type": "string",
+              "examples": [
+                "Test"
+              ]
+            }
+          },
+          "isContext": true,
+          "isIndexed": true
+        }
+      ],
+      "outgoing": [
+        {
+          "title": "return",
+          "type": "boolean",
+          "$id": "return"
+        }
+      ],
+      "steps": [
+        {
+          "id": 5,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "element",
+            "ptr": "/name"
+          },
+          "to": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/args/0/value"
+          },
+          "context": "#"
+        },
+        {
+          "id": 6,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "thisArg",
+            "ptr": "/0_organizationName"
+          },
+          "to": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/args/1/value"
+          },
+          "context": "#"
+        },
+        {
+          "id": 1,
+          "type": "method",
+          "library": "Equality",
+          "method": "equality",
+          "args": [
+            null,
+            null
+          ],
+          "view": {
+            "row": 1,
+            "col": 1
+          },
+          "context": "#"
+        },
+        {
+          "id": 4,
+          "type": "assign",
+          "from": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/return"
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "return",
+            "ptr": ""
+          },
+          "context": "#"
+        }
+      ],
+      "functions": [],
+      "name": "findOrganization",
+      "view": {
+        "col": 1,
+        "row": 4
+      },
+      "id": "findOrganization",
+      "comments": []
+    }
+  ],
+  "comments": [],
+  "view": {
+    "col": 2,
+    "row": 5
+  },
+  "created": "2023-11-30T14:03:53.037Z",
+  "createdBy": {
+    "_id": "652054b92c281c82e5b4c8b4",
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn"
+  },
+  "lastUpdated": "2023-11-30T14:03:53.037Z",
+  "lastUpdatedBy": {
+    "_id": "652054b92c281c82e5b4c8b4",
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn"
+  },
+  "version": "4.1.2-2023.1.10",
+  "tags": []
+}

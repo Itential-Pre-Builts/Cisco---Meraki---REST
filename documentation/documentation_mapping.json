@@ -1,0 +1,13 @@
+{
+  "readme": "/documentation/readme.json",
+  "assets": [
+    {
+      "name": "Create Network - Meraki - REST",
+      "path": "/documentation/Create Network - Meraki - REST.json"
+    },
+    {
+      "name": "Claim Network Devices - Meraki - REST",
+      "path": "/documentation/Claim Network Devices - Meraki - REST.json"
+    }
+  ]
+}

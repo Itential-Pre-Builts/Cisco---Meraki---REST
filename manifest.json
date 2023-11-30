@@ -1,0 +1,44 @@
+{
+  "bundleName": "Cisco - Meraki - REST",
+  "version": "0.0.1",
+  "fingerprint": "6568cac97385230178b010f7",
+  "createdEpoch": "1701366473295",
+  "artifacts": [
+    {
+      "id": "Create Network - Meraki - REST",
+      "name": "Create Network - Meraki - REST",
+      "type": "workflow",
+      "location": "/bundles/workflows/Create Network - Meraki - REST.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Claim Network Devices - Meraki - REST",
+      "name": "Claim Network Devices - Meraki - REST",
+      "type": "workflow",
+      "location": "/bundles/workflows/Claim Network Devices - Meraki - REST.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "65429b6faf3bfb0177c888eb",
+      "name": "Create Network and Claim Devices - Meraki",
+      "type": "transformation",
+      "location": "/bundles/transformations/Create Network and Claim Devices - Meraki.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "654159c9af3bfb0177c888e9",
+      "name": "Create Network - Meraki",
+      "type": "transformation",
+      "location": "/bundles/transformations/Create Network - Meraki.json",
+      "properties": {
+        "entryPoint": false
+      }
+    }
+  ]
+}

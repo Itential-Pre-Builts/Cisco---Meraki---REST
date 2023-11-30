@@ -1,0 +1,34 @@
+{
+  "name": "Cisco - Meraki - REST",
+  "overview": "This Pre-Built Automation bundle contains use cases around Cisco Meraki",
+  "domains": [
+    "SD-WAN (SASE)"
+  ],
+  "tags": [],
+  "productLink": "",
+  "apiLinks": [],
+  "storeLink": "",
+  "docLink": "",
+  "issueLink": "",
+  "deprecated": {
+    "isDeprecated": false,
+    "deprecatedOn": "",
+    "endOfLife": "",
+    "replacedBy": {
+      "name": "",
+      "overview": "",
+      "repoLink": "",
+      "docLink": "",
+      "webLink": "",
+      "isProductFeature": false
+    }
+  },
+  "type": "Workflow Project",
+  "vendorLink": "",
+  "faqLink": "",
+  "contributeLink": "",
+  "webName": "",
+  "useCases": [],
+  "webLink": "",
+  "demoLinks": []
+}

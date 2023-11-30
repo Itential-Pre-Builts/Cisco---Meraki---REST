@@ -1,0 +1,305 @@
+{
+  "_id": "65429b6faf3bfb0177c888eb",
+  "name": "Create Network and Claim Devices - Meraki",
+  "description": "",
+  "incoming": [
+    {
+      "$id": "formData",
+      "type": "object",
+      "properties": {
+        "organizationName": {
+          "type": "string",
+          "examples": [
+            "Itential Workshops"
+          ]
+        },
+        "type": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "examples": [
+              "switch"
+            ]
+          }
+        },
+        "serials": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "examples": [
+              "Q4AB-J4J8-6BJR"
+            ]
+          }
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "disableMyMerakiCom": {
+              "type": "boolean",
+              "examples": [
+                true,
+                false
+              ]
+            },
+            "disableRemoteStatusPage": {
+              "type": "boolean",
+              "examples": [
+                true,
+                false
+              ]
+            }
+          },
+          "required": []
+        },
+        "networkName": {
+          "type": "string",
+          "examples": [
+            "test network name"
+          ]
+        },
+        "timeZone": {
+          "type": "string",
+          "examples": [
+            "America/Los_Angeles"
+          ]
+        },
+        "tags": {
+          "type": "string",
+          "examples": [
+            "US"
+          ]
+        }
+      },
+      "required": []
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "type",
+      "type": "string",
+      "examples": [
+        "switch"
+      ]
+    },
+    {
+      "$id": "organizationName",
+      "type": "string",
+      "examples": [
+        "Itential PreSales"
+      ]
+    },
+    {
+      "$id": "serials",
+      "type": "array"
+    },
+    {
+      "$id": "disableMyMerakiCom",
+      "type": "boolean",
+      "examples": [
+        true,
+        false
+      ]
+    },
+    {
+      "$id": "disableRemoteStatusPage",
+      "type": "boolean",
+      "examples": [
+        true,
+        false
+      ]
+    },
+    {
+      "$id": "networkName",
+      "type": "string",
+      "examples": [
+        "Test"
+      ]
+    },
+    {
+      "$id": "timeZone",
+      "type": "string",
+      "examples": [
+        "America/Chicago"
+      ]
+    },
+    {
+      "$id": "tags",
+      "type": "string",
+      "examples": [
+        "tag1 tag2"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/networkName"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "networkName",
+        "ptr": ""
+      },
+      "context": "#"
+    },
+    {
+      "id": 2,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/timeZone"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "timeZone",
+        "ptr": ""
+      },
+      "context": "#"
+    },
+    {
+      "id": 3,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/tags"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "tags",
+        "ptr": ""
+      },
+      "context": "#"
+    },
+    {
+      "id": 7,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/organizationName"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "organizationName",
+        "ptr": ""
+      },
+      "context": "#"
+    },
+    {
+      "id": 11,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/options/disableMyMerakiCom"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "disableMyMerakiCom",
+        "ptr": ""
+      },
+      "context": "#"
+    },
+    {
+      "id": 12,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/options/disableRemoteStatusPage"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "disableRemoteStatusPage",
+        "ptr": ""
+      },
+      "context": "#"
+    },
+    {
+      "id": 13,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/serials"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "serials",
+        "ptr": ""
+      },
+      "context": "#"
+    },
+    {
+      "id": 15,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/type"
+      },
+      "to": {
+        "location": "method",
+        "name": 14,
+        "ptr": "/args/0/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 14,
+      "type": "method",
+      "library": "Array",
+      "method": "join",
+      "args": [
+        null,
+        " "
+      ],
+      "view": {
+        "row": 1,
+        "col": 1
+      },
+      "context": "#"
+    },
+    {
+      "id": 16,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 14,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "type",
+        "ptr": ""
+      },
+      "context": "#"
+    }
+  ],
+  "functions": [],
+  "comments": [],
+  "view": {
+    "col": 2,
+    "row": 5
+  },
+  "created": "2023-11-30T14:03:52.994Z",
+  "createdBy": {
+    "_id": "652054b92c281c82e5b4c8b4",
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn"
+  },
+  "lastUpdated": "2023-11-30T14:03:52.994Z",
+  "lastUpdatedBy": {
+    "_id": "652054b92c281c82e5b4c8b4",
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn"
+  },
+  "version": "4.1.2-2023.1.10",
+  "tags": []
+}

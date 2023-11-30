@@ -1,0 +1,265 @@
+{
+  "name": "Claim Network Devices - Meraki - REST",
+  "tasks": {
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "nodeLocation": {
+        "x": -864,
+        "y": 84
+      },
+      "x": 0,
+      "y": 0.5
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "nodeLocation": {
+        "x": -60,
+        "y": 84
+      },
+      "x": 1,
+      "y": 0.5
+    },
+    "180b": {
+      "name": "claimNetworkDevices",
+      "canvasName": "claimNetworkDevices",
+      "summary": "Claim a device into a network",
+      "description": "Claim a device into a network",
+      "location": "Adapter",
+      "locationType": "Meraki",
+      "app": "Meraki",
+      "type": "automatic",
+      "displayName": "Meraki",
+      "variables": {
+        "incoming": {
+          "networkId": "$var.job.networkId",
+          "claimNetworkDevices": "$var.b364.object",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": "$var.job.claimNetworkDevicesResult"
+        },
+        "error": "$var.job.claimNetworkDevicesError"
+      },
+      "actor": "Pronghorn",
+      "groups": [],
+      "nodeLocation": {
+        "x": -312,
+        "y": 84
+      }
+    },
+    "0952": {
+      "name": "ViewData",
+      "canvasName": "ViewData",
+      "summary": "View Error",
+      "description": "Displays a message and runtime data to an operator. This can be used to request a decision, or used for acknowledgement only.",
+      "location": "Application",
+      "app": "WorkFlowEngine",
+      "displayName": "Tools",
+      "type": "manual",
+      "variables": {
+        "incoming": {
+          "header": "Could not claim Meraki Device(s)",
+          "message": "",
+          "body": "$var.180b.error",
+          "variables": "",
+          "btn_success": "Retry",
+          "btn_failure": "Abort"
+        },
+        "outgoing": {}
+      },
+      "view": "/workflow_engine/task/ViewData",
+      "groups": [],
+      "nodeLocation": {
+        "x": -312,
+        "y": -24
+      }
+    },
+    "b364": {
+      "name": "setObjectKey",
+      "canvasName": "setObjectKey",
+      "summary": "Claim Network Devices Payload",
+      "description": "Set an object key",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Object",
+      "variables": {
+        "incoming": {
+          "obj": {},
+          "path": [
+            "serials"
+          ],
+          "value": "$var.job.serials"
+        },
+        "outgoing": {
+          "object": ""
+        }
+      },
+      "actor": "Pronghorn",
+      "groups": [],
+      "nodeLocation": {
+        "x": -624,
+        "y": 84
+      }
+    }
+  },
+  "transitions": {
+    "workflow_start": {
+      "b364": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "workflow_end": {},
+    "180b": {
+      "workflow_end": {
+        "state": "success",
+        "type": "standard"
+      },
+      "0952": {
+        "type": "standard",
+        "state": "error"
+      }
+    },
+    "0952": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "failure"
+      },
+      "180b": {
+        "type": "revert",
+        "state": "success"
+      }
+    },
+    "b364": {
+      "180b": {
+        "state": "success",
+        "type": "standard"
+      }
+    }
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "networkId": {
+        "title": "networkId",
+        "type": "string"
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "serials": {
+        "title": "value",
+        "type": [
+          "string",
+          "number",
+          "integer",
+          "object",
+          "array",
+          "boolean"
+        ],
+        "examples": [
+          {
+            "third": "last"
+          }
+        ]
+      }
+    },
+    "required": [
+      "networkId",
+      "adapterId",
+      "serials"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "networkId": {
+        "title": "networkId",
+        "type": "string"
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "serials": {
+        "title": "value",
+        "type": [
+          "string",
+          "number",
+          "integer",
+          "object",
+          "array",
+          "boolean"
+        ],
+        "examples": [
+          {
+            "third": "last"
+          }
+        ]
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      },
+      "claimNetworkDevicesResult": {
+        "title": "result",
+        "type": "object"
+      },
+      "claimNetworkDevicesError": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      }
+    }
+  },
+  "type": "automation",
+  "font_size": 12,
+  "errorHandler": null,
+  "preAutomationTime": 0,
+  "sla": 0,
+  "last_updated": "2023-11-30T17:34:54.579Z",
+  "lastUpdatedVersion": "5.46.0-2023.1.19.0",
+  "created": "2023-11-01T16:50:17.057Z",
+  "created_by": {
+    "provenance": "CloudAAA",
+    "username": "mike.elrom@itential.com",
+    "firstname": "Michael",
+    "inactive": true
+  },
+  "createdVersion": "5.46.0-2023.1.21.0",
+  "canvasVersion": 3,
+  "last_updated_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "tags": [],
+  "groups": [],
+  "migrationVersion": 2
+}
