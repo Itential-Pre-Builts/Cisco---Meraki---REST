@@ -23,15 +23,6 @@
       }
     },
     {
-      "id": "65429b6faf3bfb0177c888eb",
-      "name": "Create Network and Claim Devices - Meraki",
-      "type": "transformation",
-      "location": "/bundles/transformations/Create Network and Claim Devices - Meraki.json",
-      "properties": {
-        "entryPoint": false
-      }
-    },
-    {
       "id": "654159c9af3bfb0177c888e9",
       "name": "Create Network - Meraki",
       "type": "transformation",
