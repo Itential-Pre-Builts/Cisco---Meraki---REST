@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "@itentialopensource/cisco-meraki-rest",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "This Pre-Built Automation bundle contains use cases around Cisco Meraki",
     "license": "Apache-2.0",
     "repository": {
@@ -46,9 +46,9 @@
       },
       {
         "id": "654159c9af3bfb0177c888e9",
-        "name": "Create Network - Meraki",
+        "name": "Build Create Network Payload - Meraki",
         "type": "transformation",
-        "location": "/bundles/transformations/Create Network - Meraki.json",
+        "location": "/bundles/transformations/Build Create Network Payload - Meraki.json",
         "properties": {
           "entryPoint": false
         }
@@ -137,8 +137,8 @@
           "91a0": {
             "name": "transformation",
             "canvasName": "transformation",
-            "summary": "Create Network - Meraki JST",
-            "description": "Perform a JSON Transformation using the JST library.",
+            "summary": "Build Create Network Payload - Meraki",
+            "description": "Builds payload for creating network in Meraki",
             "location": "Application",
             "locationType": null,
             "app": "WorkFlowEngine",
@@ -518,8 +518,8 @@
           "b364": {
             "name": "setObjectKey",
             "canvasName": "setObjectKey",
-            "summary": "Claim Network Devices Payload",
-            "description": "Set an object key",
+            "summary": "Build Claim Network Devices Payload",
+            "description": "Builds claim network devices payload",
             "location": "Application",
             "locationType": null,
             "app": "WorkFlowEngine",
@@ -707,7 +707,7 @@
       "type": "transformation",
       "data": {
         "_id": "654159c9af3bfb0177c888e9",
-        "name": "Create Network - Meraki",
+        "name": "Build Create Network Payload - Meraki",
         "description": "",
         "incoming": [
           {
