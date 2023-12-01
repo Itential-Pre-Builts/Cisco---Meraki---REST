@@ -1,5 +1,5 @@
 {
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "This Pre-Built Automation bundle contains use cases around Cisco Meraki",
   "scripts": {
     "setup-hooks": "sh ./scripts/setup-hooks.sh",
