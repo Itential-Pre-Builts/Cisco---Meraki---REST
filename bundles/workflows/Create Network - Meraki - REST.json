@@ -77,8 +77,8 @@
     "91a0": {
       "name": "transformation",
       "canvasName": "transformation",
-      "summary": "Create Network - Meraki JST",
-      "description": "Perform a JSON Transformation using the JST library.",
+      "summary": "Build Create Network Payload - Meraki",
+      "description": "Builds payload for creating network in Meraki",
       "location": "Application",
       "locationType": null,
       "app": "WorkFlowEngine",

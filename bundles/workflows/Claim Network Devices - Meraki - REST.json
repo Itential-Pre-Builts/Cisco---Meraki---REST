@@ -79,8 +79,8 @@
     "b364": {
       "name": "setObjectKey",
       "canvasName": "setObjectKey",
-      "summary": "Claim Network Devices Payload",
-      "description": "Set an object key",
+      "summary": "Build Claim Network Devices Payload",
+      "description": "Builds claim network devices payload",
       "location": "Application",
       "locationType": null,
       "app": "WorkFlowEngine",

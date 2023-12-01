@@ -24,9 +24,9 @@
     },
     {
       "id": "654159c9af3bfb0177c888e9",
-      "name": "Create Network - Meraki",
+      "name": "Build Create Network Payload - Meraki",
       "type": "transformation",
-      "location": "/bundles/transformations/Create Network - Meraki.json",
+      "location": "/bundles/transformations/Build Create Network Payload - Meraki.json",
       "properties": {
         "entryPoint": false
       }
