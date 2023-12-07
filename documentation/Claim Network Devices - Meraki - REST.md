@@ -15,12 +15,13 @@
     - [Entry Point IAP Component](#entry-point-iap-component)
     - [Inputs](#inputs)
     - [Outputs](#outputs)
+    - [Related Documentation](#related-documentation)
     - [Example Inputs and Outputs](#example-inputs-and-outputs)
   - [Support](#support)
 
 ## Overview
 
-Claim a device into a network
+This is a modular workflow that automates the process of claiming a new network device.
 
 Capabilities include:
 - The workflow is used to claim a device into a network
@@ -39,7 +40,25 @@ Itential Workflow Projects are built and tested on particular versions of IAP. I
 
 ### External Dependencies
 
-No external dependencies required to run this Workflow Project.
+This version of **Claim Network Devices - Meraki - REST** has been tested with:
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>OS Version</th>
+      <th>API Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Meraki</td>
+      <td></td>
+      <td>v0</td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 
@@ -79,6 +98,7 @@ While Itential tests this Workflow Project and its capabilities, it is often the
 
 ## Using this Workflow Project
 
+
 ### Entry Point IAP Component
 
 The primary IAP component to run this Workflow Project is listed below:
@@ -99,19 +119,207 @@ The primary IAP component to run this Workflow Project is listed below:
 
 ### Inputs
 
-There are no inputs for this Workflow Project.
+The following table lists the inputs to the Workflow Project:
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Description</th>
+      <th>Example Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>networkId</td>
+      <td>string</td>
+      <td>yes</td>
+      <td>The network ID to use for claiming devices</td>
+      <td><pre lang="json">L_427115228141788519</pre></td>
+    </tr>    <tr>
+      <td>adapterId</td>
+      <td>string</td>
+      <td>yes</td>
+      <td>The Meraki adapter instance to use in the job</td>
+      <td><pre lang="json">Meraki</pre></td>
+    </tr>    <tr>
+      <td>serials</td>
+      <td>array</td>
+      <td>yes</td>
+      <td>The list of devices to claim as denoted by serial number</td>
+      <td><pre lang="json">[
+  "A1B2-C3D4-E4F5",
+  "1111-2222-3333"
+]</pre></td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 ### Outputs
 
-There are no outputs for this Workflow Project.
+The following table lists the outputs of the Workflow Project:
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Example Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>claimNetworkDevicesResult</td>
+      <td>object</td>
+      <td>Result of successfully claiming devices to network</td>
+      <td><pre lang="json">{
+  "icode": "AD.200",
+  "response": ""
+}</pre></td>
+    </tr>    <tr>
+      <td>claimNetworkDevicesError</td>
+      <td>object</td>
+      <td>Result if failure claiming devices to network</td>
+      <td><pre lang="json">{
+  "icode": "AD.500",
+  "IAPerror": {
+    "origin": "meraki-connectorRest-handleEndResponse",
+    "displayString": "Error 400 received on request",
+    "recommendation": "Verify the request is accurate via debug logs and postman",
+    "code": 400,
+    "raw_response": {
+      "status": "success",
+      "code": 400,
+      "response": {
+        "errors": [
+          "Device with serial  not found"
+        ]
+      },
+      "redirects": 0,
+      "tripTime": "2649ms"
+    }
+  },
+  "response": {
+    "errors": [
+      "Device with serial  not found"
+    ]
+  }
+}</pre></td>
+    </tr>
+  </tbody>
+</table>
+
+  
+#### Query Output
+    
+
+No object to query upon success
+
+    
+    
+The following items show how to query failure results from the output:
+
+      
+##### Error Response Message
+
+`claimNetworkDevicesError.response.errors[0]`
+
+      
+    
+  
+
+
+### Related Documentation
+
+<table>
+  <thead>
+    <tr>
+      <th>Documentation Link</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://developer.cisco.com/meraki/api/claim-network-devices/">Claim Network Devices - Meraki</a></td>
+      <td>Meraki API documentation for claiming network devices</td>
+    </tr>
+  </tbody>
+</table>
 
 
 
 ### Example Inputs and Outputs
 
-No example inputs or outputs found.
+  
+#### Example 1
 
+    
+Input:
+<pre>{
+  "networkId": "L_427115228141788519",
+  "adapterId": "Meraki",
+  "serials": ["A1B2-C3D4-E4F5",  "1111-2222-3333"]
+} </pre>
+
+    
+    
+Output:
+<pre>{   
+  "icode": "AD.200", 
+  "response": "" 
+} </pre>
+
+    
+  
+#### Example 2
+
+    
+Input:
+<pre>{
+  "networkId": "L_427115228141788519",
+  "adapterId": "Meraki",
+  "serials": ["4444-5555-6666"]
+} </pre>
+
+    
+    
+Output:
+<pre>{
+  "claimNetworkDevicesError": {
+    "icode": "AD.500",
+    "IAPerror": {
+      "origin": "meraki-connectorRest-handleEndResponse",
+      "displayString": "Error 400 received on request",
+      "recommendation": "Verify the request is accurate via debug logs and postman",
+      "code": 400,
+      "raw_response": {
+        "status": "success",
+        "code": 400,
+        "response": {
+          "errors": [
+            "Device with serial not found"
+          ]
+        },
+        "redirects": 0,
+        "tripTime": "2649ms"
+      }
+    },
+    "response": {
+      "errors": [
+        "Device with serial not found"
+      ]
+    }
+  },
+  "claimNetworkDevicesResult": null
+} </pre>
+
+    
+  
 
 
 ## Support
