@@ -2,6 +2,15 @@
   "iapVersions": [
     "2023.1"
   ],
+  "exampleProjects": [
+    {
+      "isDependency": false,
+      "name": "Cisco - Meraki - REST - Example",
+      "overview": "This Pre-Built Automation bundle contains several example use cases that are applicable when Itential Automation Platform is integrated with a Cisco Meraki controller using the REST API",
+      "webName": "Cisco Meraki Example Use Cases for Device Provisioning",
+      "repoLink": "https://gitlab.com/itentialopensource/pre-built-automations/cisco-meraki-rest-example"
+    }
+  ],
   "adapters": [
     {
       "isDependency": true,
@@ -14,6 +23,12 @@
       "webLink": "https://www.itential.com/adapters/cisco-meraki/"
     }
   ],
+  "externalDependencyList": [
+    {
+      "name": "Meraki",
+      "apiVersion": "v0"
+    }
+  ],
   "capabilities": [
     {
       "capability": "The workflow is used to claim a device into a network"
@@ -23,9 +38,71 @@
     "name": "Claim Network Devices - Meraki - REST",
     "type": "Workflow"
   },
-  "queryOutput": {},
+  "inputs": [
+    {
+      "name": "networkId",
+      "type": "string",
+      "required": "yes",
+      "description": "The network ID to use for claiming devices",
+      "exampleValue": "L_427115228141788519"
+    },
+    {
+      "name": "adapterId",
+      "type": "string",
+      "required": "yes",
+      "exampleValue": "Meraki",
+      "description": "The Meraki adapter instance to use in the job"
+    },
+    {
+      "name": "serials",
+      "type": "array",
+      "required": "yes",
+      "description": "The list of devices to claim as denoted by serial number",
+      "exampleValue": "[   \"A1B2-C3D4-E4F5\",   \"1111-2222-3333\" ]"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "claimNetworkDevicesResult",
+      "type": "object",
+      "exampleValue": "{   \"icode\": \"AD.200\",   \"response\": \"\" }",
+      "description": "Result of successfully claiming devices to network"
+    },
+    {
+      "name": "claimNetworkDevicesError",
+      "type": "object",
+      "exampleValue": "{   \"icode\": \"AD.500\",   \"IAPerror\": {     \"origin\": \"meraki-connectorRest-handleEndResponse\",     \"displayString\": \"Error 400 received on request\",     \"recommendation\": \"Verify the request is accurate via debug logs and postman\",     \"code\": 400,     \"raw_response\": {       \"status\": \"success\",       \"code\": 400,       \"response\": {         \"errors\": [           \"Device with serial  not found\"         ]       },       \"redirects\": 0,       \"tripTime\": \"2649ms\"     }   },   \"response\": {     \"errors\": [       \"Device with serial  not found\"     ]   } }",
+      "description": "Result if failure claiming devices to network"
+    }
+  ],
+  "relatedDocumentation": [
+    {
+      "name": "Claim Network Devices - Meraki",
+      "link": "https://developer.cisco.com/meraki/api/claim-network-devices/",
+      "description": "Meraki API documentation for claiming network devices"
+    }
+  ],
+  "exampleInputsAndOutputs": [
+    {
+      "exampleInput": "{\n  \"networkId\": \"L_427115228141788519\",\n  \"adapterId\": \"Meraki\",\n  \"serials\": [\"A1B2-C3D4-E4F5\",  \"1111-2222-3333\"]\n}",
+      "exampleOutput": "{   \n  \"icode\": \"AD.200\", \n  \"response\": \"\" \n}"
+    },
+    {
+      "exampleInput": "{\n  \"networkId\": \"L_427115228141788519\",\n  \"adapterId\": \"Meraki\",\n  \"serials\": [\"4444-5555-6666\"]\n}",
+      "exampleOutput": "{\n  \"claimNetworkDevicesError\": {\n    \"icode\": \"AD.500\",\n    \"IAPerror\": {\n      \"origin\": \"meraki-connectorRest-handleEndResponse\",\n      \"displayString\": \"Error 400 received on request\",\n      \"recommendation\": \"Verify the request is accurate via debug logs and postman\",\n      \"code\": 400,\n      \"raw_response\": {\n        \"status\": \"success\",\n        \"code\": 400,\n        \"response\": {\n          \"errors\": [\n            \"Device with serial not found\"\n          ]\n        },\n        \"redirects\": 0,\n        \"tripTime\": \"2649ms\"\n      }\n    },\n    \"response\": {\n      \"errors\": [\n        \"Device with serial not found\"\n      ]\n    }\n  },\n  \"claimNetworkDevicesResult\": null\n}"
+    }
+  ],
+  "queryOutput": {
+    "success": [],
+    "failure": [
+      {
+        "name": "Error Response Message",
+        "value": "claimNetworkDevicesError.response.errors[0]"
+      }
+    ]
+  },
   "name": "Claim Network Devices - Meraki - REST",
-  "overview": "Claim a device into a network",
-  "webName": "Claim Network Devices - Meraki",
+  "overview": "This is a modular workflow that automates the process of claiming a new network device.",
+  "webName": "Claim Network Devices - Meraki - REST",
   "assetType": "Workflow"
 }
