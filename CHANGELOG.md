@@ -1,4 +1,12 @@
 
+## 1.0.1-2023.1.0 [12-07-2023]
+
+* Publishes 2023.1 release
+
+See merge request itentialopensource/pre-built-automations/cisco-meraki-rest!3
+
+---
+
 ## 1.0.0 [12-07-2023]
 
 * Publishes major release
@@ -46,4 +54,4 @@ See merge request itentialopensource/pre-built-automations/pre-built-template-20
 See merge request itentialopensource/pre-built-automations/pre-built-template-2023-1!1
 
 ---
-\n\n\n\n\n\n
+\n\n\n\n\n\n\n
