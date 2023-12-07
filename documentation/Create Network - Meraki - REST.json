@@ -2,6 +2,15 @@
   "iapVersions": [
     "2023.1"
   ],
+  "exampleProjects": [
+    {
+      "isDependency": false,
+      "name": "Cisco - Meraki - REST - Example",
+      "webName": "Cisco Meraki Example Use Cases for Device Provisioning",
+      "repoLink": "https://gitlab.com/itentialopensource/pre-built-automations/cisco-meraki-rest-example",
+      "overview": "This Pre-Built Automation bundle contains several example use cases that are applicable when Itential Automation Platform is integrated with a Cisco Meraki controller using the REST API"
+    }
+  ],
   "adapters": [
     {
       "isDependency": true,
@@ -14,6 +23,12 @@
       "webLink": "https://www.itential.com/adapters/cisco-meraki/"
     }
   ],
+  "externalDependencyList": [
+    {
+      "name": "Meraki",
+      "apiVersion": "v0"
+    }
+  ],
   "capabilities": [
     {
       "capability": "The workflow is used to create an organization network"
@@ -23,9 +38,111 @@
     "name": "Create Network - Meraki - REST",
     "type": "Workflow"
   },
-  "queryOutput": {},
+  "inputs": [
+    {
+      "name": "adapterId",
+      "type": "string",
+      "required": "yes",
+      "description": "The Meraki adapter instance to use in job",
+      "exampleValue": "Meraki"
+    },
+    {
+      "name": "networkName",
+      "description": "The name of the new organization network",
+      "type": "string",
+      "required": "yes",
+      "exampleValue": "Network"
+    },
+    {
+      "name": "timeZone",
+      "description": "The timezone of the network",
+      "exampleValue": "America/New_York",
+      "type": "string",
+      "required": "yes"
+    },
+    {
+      "name": "tags",
+      "description": "Space separated list of tags to be applied to the network",
+      "exampleValue": "tag1 tag2",
+      "type": "string",
+      "required": "yes"
+    },
+    {
+      "name": "type",
+      "description": "Space separated list of the product type(s) of the new network. If more than one type is included, the network will be a combined network.",
+      "type": "string",
+      "required": "yes",
+      "exampleValue": "appliance switch wireless"
+    },
+    {
+      "name": "disableMyMerakiCom",
+      "required": "yes",
+      "description": "If set to true will disable mymeraki.com",
+      "type": "boolean",
+      "exampleValue": "true"
+    },
+    {
+      "name": "disableRemoteStatusPage",
+      "type": "boolean",
+      "required": "yes",
+      "description": "If set to true will disable the remote status page",
+      "exampleValue": "false"
+    },
+    {
+      "name": "organizationName",
+      "description": "Name of the organization within which to create network in Meraki",
+      "required": "yes",
+      "type": "string",
+      "exampleValue": "Organization"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "createNetworkSuccess",
+      "type": "object",
+      "description": "Result of creating network in Meraki",
+      "exampleValue": "{   \"icode\": \"AD.201\",   \"response\": {     \"id\": \"L_627126248111380519\",     \"organizationId\": \"127026248110254140\",     \"productTypes\": [       \"systems manager\"     ],     \"url\": \"https://meraki.com/Network/n/PinukaYb/manage/usage/list\",     \"name\": \"Network\",     \"timeZone\": \"America/New_York\",     \"enrollmentString\": null,     \"type\": \"combined\",     \"tags\": \"tag1 tag2\",     \"disableMyMerakiCom\": true,     \"disableRemoteStatusPage\": true   } }"
+    },
+    {
+      "name": "createNetworkError",
+      "type": "object",
+      "description": "Result if failure creating network in Meraki",
+      "exampleValue": "{   \"icode\": \"AD.500\",   \"IAPerror\": {     \"origin\": \"meraki-connectorRest-handleEndResponse\",     \"displayString\": \"Error 400 received on request\",     \"recommendation\": \"Verify the request is accurate via debug logs and postman\",     \"code\": 400,     \"raw_response\": {       \"status\": \"success\",       \"code\": 400,       \"response\": {         \"errors\": [           \"Name has already been taken\"         ]       },       \"redirects\": 0,       \"tripTime\": \"325ms\"     }   },   \"response\": {     \"errors\": [       \"Name has already been taken\"     ]   } }"
+    }
+  ],
+  "relatedDocumentation": [
+    {
+      "name": "Create Organization Network - Meraki",
+      "link": "https://developer.cisco.com/meraki/api/create-organization-network/",
+      "description": "Meraki API documentation for creating an organization network"
+    }
+  ],
+  "exampleInputsAndOutputs": [
+    {
+      "exampleInput": "{\n  \"adapterId\": \"Meraki\",\n  \"networkName\": \"Network\",\n  \"timeZone\": \"America/New_York\",\n  \"tags\": \"tag1 tag2\",\n  \"type\": \"appliance switch wireless\",\n  \"disableMyMerakiCom\": true,\n  \"disableRemoteStatusPage\": false,\n  \"organizationName\": \"Organization\"\n}",
+      "exampleOutput": "{\n  \"createNetworkSuccess\": {\n    \"icode\": \"AD.201\",\n    \"response\": {\n      \"id\": \"L_627126248111380519\",\n      \"organizationId\": \"127026248110254140\",\n      \"productTypes\": [\n        \"systems manager\"\n      ],\n      \"url\": \"https://meraki.com/Network/n/PinukaYb/manage/usage/list\",\n      \"name\": \"Pre-Built Test 1\",\n      \"timeZone\": \"America/New_York\",\n      \"enrollmentString\": null,\n      \"type\": \"combined\",\n      \"tags\": \"tag1 tag2\",\n      \"disableMyMerakiCom\": true,\n      \"disableRemoteStatusPage\": true\n    }\n  }\n}"
+    },
+    {
+      "exampleInput": "{\n  \"adapterId\": \"Meraki\",\n  \"networkName\": \"Network Already Exists\",\n  \"timeZone\": \"America/New_York\",\n  \"tags\": \"tag1 tag2\",\n  \"type\": \"appliance switch wireless\",\n  \"disableMyMerakiCom\": true,\n  \"disableRemoteStatusPage\": false,\n  \"organizationName\": \"Organization\"\n}",
+      "exampleOutput": "{\n  \"createNetworkError\": {\n    \"icode\": \"AD.500\",\n    \"IAPerror\": {\n      \"origin\": \"meraki-connectorRest-handleEndResponse\",\n      \"displayString\": \"Error 400 received on request\",\n      \"recommendation\": \"Verify the request is accurate via debug logs and postman\",\n      \"code\": 400,\n      \"raw_response\": {\n        \"status\": \"success\",\n        \"code\": 400,\n        \"response\": {\n          \"errors\": [\n            \"Name has already been taken\"\n          ]\n        },\n        \"redirects\": 0,\n        \"tripTime\": \"325ms\"\n      }\n    },\n    \"response\": {\n      \"errors\": [\n        \"Name has already been taken\"\n      ]\n    }\n  },\n  \"createNetworkSuccess\": null\n}"
+    }
+  ],
+  "queryOutput": {
+    "success": [
+      {
+        "name": "Network ID",
+        "value": "createNetworkSuccess.response.id"
+      }
+    ],
+    "failure": [
+      {
+        "name": "Error Response Message",
+        "value": "createNetworkError.response.errors[0]"
+      }
+    ]
+  },
   "name": "Create Network - Meraki - REST",
-  "overview": "Create an organization network",
-  "webName": "Create Network - Meraki",
+  "overview": "This is a modular workflow that automates the creation of a new network.",
+  "webName": "Create Network - Meraki - REST",
   "assetType": "Workflow"
 }

@@ -1,34 +1,38 @@
 {
-  "name": "Cisco - Meraki - REST",
-  "overview": "This Pre-Built Automation bundle contains use cases around Cisco Meraki",
   "domains": [
     "SD-WAN (SASE)"
   ],
   "tags": [],
-  "productLink": "",
-  "apiLinks": [],
-  "storeLink": "",
-  "docLink": "",
-  "issueLink": "",
+  "useCases": [
+    "Onboard, update, manage or remove Devices"
+  ],
+  "apiLinks": [
+    "https://developer.cisco.com/meraki/api/"
+  ],
   "deprecated": {
     "isDeprecated": false,
-    "deprecatedOn": "",
-    "endOfLife": "",
     "replacedBy": {
+      "isProductFeature": false,
       "name": "",
       "overview": "",
       "repoLink": "",
       "docLink": "",
-      "webLink": "",
-      "isProductFeature": false
-    }
+      "webLink": ""
+    },
+    "deprecatedOn": "",
+    "endOfLife": ""
   },
+  "name": "Cisco - Meraki - REST",
+  "overview": "The integration of Itential and the Cisco Meraki solution enables network teams to utilize its REST API to build automations that can include common tasks for provisioning and device management. This is a library of related automations that can be used as modular components in your own larger, end-to-end workflows.\nThis Pre-Built contains multiple automations including:\n\n**Create Network - Meraki - REST**\nThis is a modular workflow that automates the creation of a new network.\n\n**Claim Network Devices - Meraki - REST**\nThis is a modular workflow that automates the process of claiming a new network device.",
+  "productLink": "",
+  "storeLink": "",
+  "docLink": "",
+  "issueLink": "",
   "type": "Workflow Project",
   "vendorLink": "",
   "faqLink": "",
   "contributeLink": "",
-  "webName": "",
-  "useCases": [],
+  "webName": "Cisco Meraki Modular Automations",
   "webLink": "",
   "demoLinks": []
 }
