@@ -1,0 +1,142 @@
+{
+  "input": {
+    "description": "Create Network - Meraki - REST: It should create a new network in Meraki and claim devices with tags",
+    "variables": {
+      "adapterId": "meraki",
+      "networkName": "Test Network 1",
+      "timeZone": "America/Denver",
+      "tags": [
+        "tag1",
+        "tag2"
+      ],
+      "productTypes": [
+        "appliance",
+        "camera",
+        "cellularGateway",
+        "sensor",
+        "switch",
+        "systemsManager",
+        "wireless"
+      ],
+      "notes": "Test",
+      "organizationName": "Itential Workshops"
+    }
+  },
+  "expectedTaskResults": {
+    "status": "complete",
+    "variables": {
+      "adapterId": "meraki",
+      "networkName": "Test Network 1",
+      "timeZone": "America/Denver",
+      "tags": [
+        "tag1",
+        "tag2"
+      ],
+      "productTypes": [
+        "appliance",
+        "camera",
+        "cellularGateway",
+        "sensor",
+        "switch",
+        "systemsManager",
+        "wireless"
+      ],
+      "notes": "Test",
+      "organizationName": "Itential Workshops"
+    }
+  },
+  "stubTasks": [
+    {
+      "taskId": "d3a4",
+      "variables": {
+        "incoming": {},
+        "outgoing": {
+          "result": {
+            "icode": "AD.200",
+            "response": [
+              {
+                "id": "627126248111354170",
+                "name": "Itential Workshops",
+                "url": "https://n114.meraki.com/o/RUtUJdYb/manage/organization/overview",
+                "samlConsumerUrl": "https://n114.meraki.com/saml/login/RUtUJdYb/vFRJLaX_N-Ga",
+                "samlConsumerUrls": [
+                  "https://n114.meraki.com/saml/login/RUtUJdYb/vFRJLaX_N-Ga"
+                ],
+                "api": {
+                  "enabled": true
+                },
+                "licensing": {
+                  "model": "co-term"
+                },
+                "cloud": {
+                  "region": {
+                    "name": "North America"
+                  }
+                },
+                "management": {
+                  "details": []
+                }
+              }
+            ]
+          }
+        }
+      },
+      "nodeLocation": {
+        "x": -636,
+        "y": -108
+      }
+    },
+    {
+      "taskId": "47b4",
+      "variables": {
+        "incoming": {
+          "organizationId": "627126248111354170",
+          "createOrganizationNetwork": {
+            "name": "Test Network 1",
+            "timeZone": "America/Denver",
+            "tags": [
+              "tag1",
+              "tag2"
+            ],
+            "productTypes": [
+              "appliance",
+              "camera",
+              "cellularGateway",
+              "sensor",
+              "switch",
+              "systemsManager",
+              "wireless"
+            ],
+            "notes": "Test"
+          }
+        },
+        "outgoing": {
+          "result": {
+            "icode": "AD.201",
+            "response": {
+              "id": "L_627126248111380578",
+              "organizationId": "627126248111354170",
+              "productTypes": [
+                "systemsManager"
+              ],
+              "url": "https://n114.meraki.com/Test-Network-1-e/n/d-oQxbYb/manage/usage/list",
+              "name": "Test Network 1",
+              "timeZone": "America/Denver",
+              "enrollmentString": null,
+              "tags": [
+                "tag1",
+                "tag2"
+              ],
+              "notes": "Test",
+              "isBoundToConfigTemplate": false
+            }
+          }
+        }
+      },
+      "nodeLocation": {
+        "x": -24,
+        "y": -108
+      }
+    }
+  ]
+}

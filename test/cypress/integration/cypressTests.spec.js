@@ -1,6 +1,8 @@
 import { WorkflowRunner, PrebuiltRunner } from '@itential-tools/iap-cypress-testing-library/testRunner/testRunners';
-const CreateNetworkMerakiRESTJob0Data = require('../fixtures/stubs/Create Network - Meraki - REST Job0.json');
-const ClaimNetworkDevicesMerakiRESTJob1Data = require('../fixtures/stubs/Claim Network Devices - Meraki - REST Job1.json');
+const CreateNetworkMerakiRESTJob3Data = require('../fixtures/stubs/Create Network - Meraki - REST Job3.json');
+const ClaimNetworkDevicesMerakiRESTJob4Data = require('../fixtures/stubs/Claim Network Devices - Meraki - REST Job4.json');
+const CreateNetworkMerakiRESTJob5Data = require('../fixtures/stubs/Create Network - Meraki - REST Job5.json');
+const ClaimNetworkDevicesMerakiRESTJob6Data = require('../fixtures/stubs/Claim Network Devices - Meraki - REST Job6.json');
 
 function initializeWorkflowRunner(workflow, importWorkflow, isStub, stubTasks) {
   let workflowRunner = new WorkflowRunner(workflow.name);
@@ -47,8 +49,13 @@ function replaceStubTasks(workflowRunner, workflowName) {
 
 describe('Default: Cypress Tests', function () {
   let prebuiltRunner;
-  let CreateNetworkMerakiRESTJob0Workflow;
-  let ClaimNetworkDevicesMerakiRESTJob1Workflow;
+  let CreateNetworkandClaimDevicesMerakiExampleJob0Workflow;
+  let CreateNetworkandClaimDevicesMerakiExampleJob1Workflow;
+  let CreateNetworkandClaimDevicesResetMerakiExampleJob2Workflow;
+  let CreateNetworkMerakiRESTJob3Workflow;
+  let ClaimNetworkDevicesMerakiRESTJob4Workflow;
+  let CreateNetworkMerakiRESTJob5Workflow;
+  let ClaimNetworkDevicesMerakiRESTJob6Workflow;
   
   before(function () {
     //creates a prebuilt runner for importing the project
@@ -56,10 +63,16 @@ describe('Default: Cypress Tests', function () {
       prebuiltRunner = new PrebuiltRunner(data);
     });
     cy.fixture(`../../../bundles/workflows/Create Network - Meraki - REST.json`).then((data) => {
-      CreateNetworkMerakiRESTJob0Workflow = data;
+      CreateNetworkMerakiRESTJob3Workflow = data;
     });
     cy.fixture(`../../../bundles/workflows/Claim Network Devices - Meraki - REST.json`).then((data) => {
-      ClaimNetworkDevicesMerakiRESTJob1Workflow = data;
+      ClaimNetworkDevicesMerakiRESTJob4Workflow = data;
+    });
+    cy.fixture(`../../../bundles/workflows/Create Network - Meraki - REST.json`).then((data) => {
+      CreateNetworkMerakiRESTJob5Workflow = data;
+    });
+    cy.fixture(`../../../bundles/workflows/Claim Network Devices - Meraki - REST.json`).then((data) => {
+      ClaimNetworkDevicesMerakiRESTJob6Workflow = data;
     });
     
   });
@@ -77,49 +90,97 @@ describe('Default: Cypress Tests', function () {
   })
 
   describe('Create Network - Meraki - REST', function() {
-    it('It should create a new network in Meraki', function () {
+    it('Create Network - Meraki - REST: It should create a new network in Meraki and claim devices without tags', function () {
       const importWorkflow = true;
       const isStub = true;
       // create the job runner so it can be used in future tests
-      const workflowRunner = initializeWorkflowRunner(CreateNetworkMerakiRESTJob0Workflow, importWorkflow, isStub, CreateNetworkMerakiRESTJob0Data.stubTasks);
+      const workflowRunner = initializeWorkflowRunner(CreateNetworkMerakiRESTJob3Workflow, importWorkflow, isStub, CreateNetworkMerakiRESTJob3Data.stubTasks);
       // this has to be customized to each IAP version.
 
       workflowRunner.job.startAndReturnResultsWhenComplete({
-        options: CreateNetworkMerakiRESTJob0Data.input,
+        options: CreateNetworkMerakiRESTJob3Data.input,
         retryTime: 2000,
       }).then((jobVariableResults) => {
-        expect(jobVariableResults['status']).eql(CreateNetworkMerakiRESTJob0Data.expectedTaskResults.status);
+        expect(jobVariableResults['status']).eql(CreateNetworkMerakiRESTJob3Data.expectedTaskResults.status);
         workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
           delete jobVariables._id;
           delete jobVariables.initiator;
-          expect(jobVariables).eql(CreateNetworkMerakiRESTJob0Data.expectedTaskResults.variables);
+          expect(jobVariables).eql(CreateNetworkMerakiRESTJob3Data.expectedTaskResults.variables);
         });
         /* Restore the workflow without the stub tasks */
-        replaceStubTasks(workflowRunner, CreateNetworkMerakiRESTJob0Workflow);
+        replaceStubTasks(workflowRunner, CreateNetworkMerakiRESTJob3Workflow);
       });
     })
   })
 
   describe('Claim Network Devices - Meraki - REST', function() {
-    it('It should claim a device in Meraki', function () {
+    it('Claim Network Devices - Meraki - REST: It should create a new network in Meraki and claim devices without tags', function () {
       const importWorkflow = true;
       const isStub = true;
       // create the job runner so it can be used in future tests
-      const workflowRunner = initializeWorkflowRunner(ClaimNetworkDevicesMerakiRESTJob1Workflow, importWorkflow, isStub, ClaimNetworkDevicesMerakiRESTJob1Data.stubTasks);
+      const workflowRunner = initializeWorkflowRunner(ClaimNetworkDevicesMerakiRESTJob4Workflow, importWorkflow, isStub, ClaimNetworkDevicesMerakiRESTJob4Data.stubTasks);
       // this has to be customized to each IAP version.
 
       workflowRunner.job.startAndReturnResultsWhenComplete({
-        options: ClaimNetworkDevicesMerakiRESTJob1Data.input,
+        options: ClaimNetworkDevicesMerakiRESTJob4Data.input,
         retryTime: 2000,
       }).then((jobVariableResults) => {
-        expect(jobVariableResults['status']).eql(ClaimNetworkDevicesMerakiRESTJob1Data.expectedTaskResults.status);
+        expect(jobVariableResults['status']).eql(ClaimNetworkDevicesMerakiRESTJob4Data.expectedTaskResults.status);
         workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
           delete jobVariables._id;
           delete jobVariables.initiator;
-          expect(jobVariables).eql(ClaimNetworkDevicesMerakiRESTJob1Data.expectedTaskResults.variables);
+          expect(jobVariables).eql(ClaimNetworkDevicesMerakiRESTJob4Data.expectedTaskResults.variables);
         });
         /* Restore the workflow without the stub tasks */
-        replaceStubTasks(workflowRunner, ClaimNetworkDevicesMerakiRESTJob1Workflow);
+        replaceStubTasks(workflowRunner, ClaimNetworkDevicesMerakiRESTJob4Workflow);
+      });
+    })
+  })
+
+  describe('Create Network - Meraki - REST', function() {
+    it('Create Network - Meraki - REST: It should create a new network in Meraki and claim devices with tags', function () {
+      const importWorkflow = true;
+      const isStub = true;
+      // create the job runner so it can be used in future tests
+      const workflowRunner = initializeWorkflowRunner(CreateNetworkMerakiRESTJob5Workflow, importWorkflow, isStub, CreateNetworkMerakiRESTJob5Data.stubTasks);
+      // this has to be customized to each IAP version.
+
+      workflowRunner.job.startAndReturnResultsWhenComplete({
+        options: CreateNetworkMerakiRESTJob5Data.input,
+        retryTime: 2000,
+      }).then((jobVariableResults) => {
+        expect(jobVariableResults['status']).eql(CreateNetworkMerakiRESTJob5Data.expectedTaskResults.status);
+        workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
+          delete jobVariables._id;
+          delete jobVariables.initiator;
+          expect(jobVariables).eql(CreateNetworkMerakiRESTJob5Data.expectedTaskResults.variables);
+        });
+        /* Restore the workflow without the stub tasks */
+        replaceStubTasks(workflowRunner, CreateNetworkMerakiRESTJob5Workflow);
+      });
+    })
+  })
+
+  describe('Claim Network Devices - Meraki - REST', function() {
+    it('Claim Network Devices - Meraki - REST: It should create a new network in Meraki and claim devices with tags', function () {
+      const importWorkflow = true;
+      const isStub = true;
+      // create the job runner so it can be used in future tests
+      const workflowRunner = initializeWorkflowRunner(ClaimNetworkDevicesMerakiRESTJob6Workflow, importWorkflow, isStub, ClaimNetworkDevicesMerakiRESTJob6Data.stubTasks);
+      // this has to be customized to each IAP version.
+
+      workflowRunner.job.startAndReturnResultsWhenComplete({
+        options: ClaimNetworkDevicesMerakiRESTJob6Data.input,
+        retryTime: 2000,
+      }).then((jobVariableResults) => {
+        expect(jobVariableResults['status']).eql(ClaimNetworkDevicesMerakiRESTJob6Data.expectedTaskResults.status);
+        workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
+          delete jobVariables._id;
+          delete jobVariables.initiator;
+          expect(jobVariables).eql(ClaimNetworkDevicesMerakiRESTJob6Data.expectedTaskResults.variables);
+        });
+        /* Restore the workflow without the stub tasks */
+        replaceStubTasks(workflowRunner, ClaimNetworkDevicesMerakiRESTJob6Workflow);
       });
     })
   })

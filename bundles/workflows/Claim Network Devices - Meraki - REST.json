@@ -242,23 +242,23 @@
   "errorHandler": null,
   "preAutomationTime": 0,
   "sla": 0,
-  "last_updated": "2023-11-30T17:34:54.579Z",
-  "lastUpdatedVersion": "5.46.0-2023.1.19.0",
+  "last_updated": "2023-12-15T15:19:45.897Z",
+  "lastUpdatedVersion": "4.15.0-2023.1.149.0",
   "created": "2023-11-01T16:50:17.057Z",
   "created_by": {
     "provenance": "CloudAAA",
     "username": "mike.elrom@itential.com",
     "firstname": "Michael",
-    "inactive": true
-  },
-  "createdVersion": "5.46.0-2023.1.21.0",
-  "canvasVersion": 3,
-  "last_updated_by": {
-    "provenance": "local_aaa",
-    "username": "admin@pronghorn",
-    "firstname": "admin",
     "inactive": false
   },
+  "createdVersion": "5.46.0-2023.1.21.0",
+  "last_updated_by": {
+    "provenance": "CloudAAA",
+    "username": "mike.elrom@itential.com",
+    "firstname": "Michael",
+    "inactive": false
+  },
+  "canvasVersion": 3,
   "tags": [],
   "groups": [],
   "migrationVersion": 2

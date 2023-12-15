@@ -91,9 +91,8 @@
             "networkName": "$var.job.networkName",
             "timeZone": "$var.job.timeZone",
             "tags": "$var.job.tags",
-            "type": "$var.job.type",
-            "disableMyMerakiCom": "$var.job.disableMyMerakiCom",
-            "disableRemoteStatusPage": "$var.job.disableRemoteStatusPage",
+            "productTypes": "$var.job.productTypes",
+            "notes": "$var.job.notes",
             "listOrganizations": "$var.d3a4.result",
             "organizationName": "$var.job.organizationName"
           },
@@ -214,32 +213,29 @@
       },
       "tags": {
         "$id": "tags",
+        "type": "array",
+        "items": {
+          "type": "string",
+          "examples": [
+            "tag1"
+          ]
+        }
+      },
+      "productTypes": {
+        "$id": "productTypes",
+        "type": "array",
+        "items": {
+          "type": "string",
+          "examples": [
+            "appliance"
+          ]
+        }
+      },
+      "notes": {
+        "$id": "notes",
         "type": "string",
         "examples": [
-          "tag1 tag2"
-        ]
-      },
-      "type": {
-        "$id": "type",
-        "type": "string",
-        "examples": [
-          "appliance"
-        ]
-      },
-      "disableMyMerakiCom": {
-        "$id": "disableMyMerakiCom",
-        "type": "boolean",
-        "examples": [
-          true,
-          false
-        ]
-      },
-      "disableRemoteStatusPage": {
-        "$id": "disableRemoteStatusPage",
-        "type": "boolean",
-        "examples": [
-          true,
-          false
+          "my optional note"
         ]
       },
       "organizationName": {
@@ -255,9 +251,8 @@
       "networkName",
       "timeZone",
       "tags",
-      "type",
-      "disableMyMerakiCom",
-      "disableRemoteStatusPage",
+      "productTypes",
+      "notes",
       "organizationName"
     ]
   },
@@ -290,32 +285,29 @@
       },
       "tags": {
         "$id": "tags",
+        "type": "array",
+        "items": {
+          "type": "string",
+          "examples": [
+            "tag1"
+          ]
+        }
+      },
+      "productTypes": {
+        "$id": "productTypes",
+        "type": "array",
+        "items": {
+          "type": "string",
+          "examples": [
+            "appliance"
+          ]
+        }
+      },
+      "notes": {
+        "$id": "notes",
         "type": "string",
         "examples": [
-          "tag1 tag2"
-        ]
-      },
-      "type": {
-        "$id": "type",
-        "type": "string",
-        "examples": [
-          "appliance"
-        ]
-      },
-      "disableMyMerakiCom": {
-        "$id": "disableMyMerakiCom",
-        "type": "boolean",
-        "examples": [
-          true,
-          false
-        ]
-      },
-      "disableRemoteStatusPage": {
-        "$id": "disableRemoteStatusPage",
-        "type": "boolean",
-        "examples": [
-          true,
-          false
+          "my optional note"
         ]
       },
       "organizationName": {
@@ -353,23 +345,23 @@
   "errorHandler": null,
   "preAutomationTime": 0,
   "sla": 0,
-  "last_updated": "2023-11-30T17:21:38.901Z",
-  "lastUpdatedVersion": "5.46.0-2023.1.19.0",
+  "last_updated": "2023-12-15T16:34:59.661Z",
+  "lastUpdatedVersion": "5.46.0-2023.1.30.0",
   "created": "2023-10-26T16:11:29.674Z",
   "created_by": {
     "provenance": "CloudAAA",
     "username": "mike.elrom@itential.com",
     "firstname": "Michael",
-    "inactive": true
-  },
-  "createdVersion": "5.46.0-2023.1.21.0",
-  "canvasVersion": 3,
-  "last_updated_by": {
-    "provenance": "local_aaa",
-    "username": "admin@pronghorn",
-    "firstname": "admin",
     "inactive": false
   },
+  "createdVersion": "5.46.0-2023.1.21.0",
+  "last_updated_by": {
+    "provenance": "CloudAAA",
+    "username": "mike.elrom@itential.com",
+    "firstname": "Michael",
+    "inactive": false
+  },
+  "canvasVersion": 3,
   "tags": [],
   "groups": [],
   "migrationVersion": 2
