@@ -1,0 +1,50 @@
+{
+  "input": {
+    "description": "Claim Network Devices - Meraki - REST: It should create a new network in Meraki and claim devices with tags",
+    "variables": {
+      "networkId": "L_627126248111380578",
+      "adapterId": "meraki",
+      "serials": [
+        "Q3AL-NE8E-R4K6",
+        "Q4AB-J4J8-6BJR"
+      ]
+    }
+  },
+  "expectedTaskResults": {
+    "status": "complete",
+    "variables": {
+      "networkId": "L_627126248111380578",
+      "adapterId": "meraki",
+      "serials": [
+        "Q3AL-NE8E-R4K6",
+        "Q4AB-J4J8-6BJR"
+      ]
+    }
+  },
+  "stubTasks": [
+    {
+      "taskId": "180b",
+      "variables": {
+        "incoming": {
+          "networkId": "L_627126248111380578",
+          "claimNetworkDevices": {
+            "serials": [
+              "Q3AL-NE8E-R4K6",
+              "Q4AB-J4J8-6BJR"
+            ]
+          }
+        },
+        "outgoing": {
+          "result": {
+            "icode": "AD.200",
+            "response": ""
+          }
+        }
+      },
+      "nodeLocation": {
+        "x": -312,
+        "y": 84
+      }
+    }
+  ]
+}
