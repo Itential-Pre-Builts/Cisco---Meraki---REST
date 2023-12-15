@@ -1,21 +1,23 @@
 {
   "input": {
-    "description": "It should claim a device in Meraki",
+    "description": "Claim Network Devices - Meraki - REST: It should create a new network in Meraki and claim devices without tags",
     "variables": {
-      "networkId": "L_12345678912345678",
+      "networkId": "L_627126248111380577",
       "adapterId": "meraki",
       "serials": [
-        "A1B1-C2D3-E4F5"
+        "Q3AL-NE8E-R4K6",
+        "Q4AB-J4J8-6BJR"
       ]
     }
   },
   "expectedTaskResults": {
     "status": "complete",
     "variables": {
-      "networkId": "L_12345678912345678",
+      "networkId": "L_627126248111380577",
       "adapterId": "meraki",
       "serials": [
-        "A1B1-C2D3-E4F5"
+        "Q3AL-NE8E-R4K6",
+        "Q4AB-J4J8-6BJR"
       ]
     }
   },
@@ -24,10 +26,11 @@
       "taskId": "180b",
       "variables": {
         "incoming": {
-          "networkId": "L_12345678912345678",
+          "networkId": "L_627126248111380577",
           "claimNetworkDevices": {
             "serials": [
-              "A1B1-C2D3-E4F5"
+              "Q3AL-NE8E-R4K6",
+              "Q4AB-J4J8-6BJR"
             ]
           }
         },
@@ -40,7 +43,7 @@
       },
       "nodeLocation": {
         "x": -312,
-        "y": 96
+        "y": 84
       }
     }
   ]
