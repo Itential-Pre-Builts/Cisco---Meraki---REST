@@ -54,7 +54,7 @@ This version of **Claim Network Devices - Meraki - REST** has been tested with:
     <tr>
       <td>Meraki</td>
       <td></td>
-      <td>v0</td>
+      <td>v1</td>
     </tr>
   </tbody>
 </table>
@@ -77,8 +77,8 @@ This version of **Claim Network Devices - Meraki - REST** has been tested with:
   <tbody>
     <tr>
       <td><a href="https://gitlab.com/itentialopensource/adapters/sd-wan/adapter-meraki">adapter-meraki</a></td>
-      <td>1.3.0</td>
-      <td></td>
+      <td>^1.3.0</td>
+      <td>In order to run the workflows in this Pre-Built Automation, the adapter property <code>choosepath</code> must be added to the Meraki adapter configuration with value `"v1"`.</td>
     </tr>
   </tbody>
 </table>
@@ -245,7 +245,7 @@ The following items show how to query failure results from the output:
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://developer.cisco.com/meraki/api/claim-network-devices/">Claim Network Devices - Meraki</a></td>
+      <td><a href="https://developer.cisco.com/meraki/api-v1/claim-network-devices/">Claim Network Devices - Meraki</a></td>
       <td>Meraki API documentation for claiming network devices</td>
     </tr>
   </tbody>
