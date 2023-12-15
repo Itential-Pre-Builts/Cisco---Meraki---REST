@@ -9,7 +9,7 @@
     ""
   ],
   "apiVersions": [
-    "v0"
+    "v1"
   ],
   "iapVersions": [
     "2023.1"
@@ -85,9 +85,9 @@
         "repoLink": "https://gitlab.com/itentialopensource/adapters/sd-wan/adapter-meraki",
         "docLink": "https://docs.itential.com/opensource/docs/meraki",
         "webLink": "https://www.itential.com/adapters/cisco-meraki/",
-        "configurationNotes": "",
+        "configurationNotes": "In order to run the workflows in this Pre-Built Automation, the adapter property <code>choosepath</code> must be added to the Meraki adapter configuration with value `\"v1\"`.",
         "versions": [
-          "1.3.0"
+          "^1.3.0"
         ]
       }
     ],
