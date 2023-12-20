@@ -8,7 +8,9 @@
       "name": "Cisco - Meraki - REST - Example",
       "overview": "This Pre-Built Automation bundle contains several example use cases that are applicable when Itential Automation Platform is integrated with a Cisco Meraki controller using the REST API",
       "webName": "Cisco Meraki Example Use Cases for Device Provisioning",
-      "repoLink": "https://gitlab.com/itentialopensource/pre-built-automations/cisco-meraki-rest-example"
+      "repoLink": "https://gitlab.com/itentialopensource/pre-built-automations/cisco-meraki-rest-example",
+      "webLink": "https://www.itential.com/automations/cisco-meraki-example-use-cases-for-device-provisioning/",
+      "version": "^1.0.4"
     }
   ],
   "adapters": [
