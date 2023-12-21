@@ -1,4 +1,12 @@
 
+## 1.0.2 [12-21-2023]
+
+* Update documentation
+
+See merge request itentialopensource/pre-built-automations/cisco-meraki-rest!6
+
+---
+
 ## 1.0.1 [12-15-2023]
 
 * Adds v1 API Meraki support and updates cypress tests
@@ -54,4 +62,4 @@ See merge request itentialopensource/pre-built-automations/pre-built-template-20
 See merge request itentialopensource/pre-built-automations/pre-built-template-2023-1!1
 
 ---
-\n\n\n\n\n\n\n
+\n\n\n\n\n\n\n\n

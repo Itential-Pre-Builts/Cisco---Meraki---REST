@@ -152,34 +152,39 @@ The following table lists the inputs to the Workflow Project:
       <td><pre lang="json">America/New_York</pre></td>
     </tr>    <tr>
       <td>tags</td>
-      <td>string</td>
+      <td>array</td>
       <td>yes</td>
-      <td>Space separated list of tags to be applied to the network</td>
-      <td><pre lang="json">tag1 tag2</pre></td>
+      <td>List of tags to be applied to the network</td>
+      <td><pre lang="json">[
+  "tag1",
+  "tag2"
+]</pre></td>
     </tr>    <tr>
-      <td>type</td>
-      <td>string</td>
+      <td>productTypes</td>
+      <td>array</td>
       <td>yes</td>
-      <td>Space separated list of the product type(s) of the new network. If more than one type is included, the network will be a combined network.</td>
-      <td><pre lang="json">appliance switch wireless</pre></td>
-    </tr>    <tr>
-      <td>disableMyMerakiCom</td>
-      <td>boolean</td>
-      <td>yes</td>
-      <td>If set to true will disable mymeraki.com</td>
-      <td><pre lang="json">true</pre></td>
-    </tr>    <tr>
-      <td>disableRemoteStatusPage</td>
-      <td>boolean</td>
-      <td>yes</td>
-      <td>If set to true will disable the remote status page</td>
-      <td><pre lang="json">false</pre></td>
+      <td>List of the product type(s) of the new network. If more than one type is included, the network will be a combined network.</td>
+      <td><pre lang="json">[
+  "appliance",
+  "camera",
+  "cellularGateway",
+  "sensor",
+  "switch",
+  "systemsManager",
+  "wireless"
+]</pre></td>
     </tr>    <tr>
       <td>organizationName</td>
       <td>string</td>
       <td>yes</td>
       <td>Name of the organization within which to create network in Meraki</td>
       <td><pre lang="json">Organization</pre></td>
+    </tr>    <tr>
+      <td>notes</td>
+      <td>string</td>
+      <td>yes</td>
+      <td>Add any notes or additional information about the network</td>
+      <td><pre lang="json">Note associated with the network created.</pre></td>
     </tr>
   </tbody>
 </table>
@@ -207,19 +212,18 @@ The following table lists the outputs of the Workflow Project:
       <td><pre lang="json">{
   "icode": "AD.201",
   "response": {
-    "id": "L_627126248111380519",
-    "organizationId": "127026248110254140",
+    "id": "L_627126248111380577",
+    "organizationId": "627126248111354170",
     "productTypes": [
-      "systems manager"
+      "systemsManager"
     ],
-    "url": "https://meraki.com/Network/n/PinukaYb/manage/usage/list",
-    "name": "Network",
-    "timeZone": "America/New_York",
+    "url": "https://n114.meraki.com/Test-Network-2-c/n/NcJKHbYb/manage/usage/list",
+    "name": "Test Network 2",
+    "timeZone": "America/Chicago",
     "enrollmentString": null,
-    "type": "combined",
-    "tags": "tag1 tag2",
-    "disableMyMerakiCom": true,
-    "disableRemoteStatusPage": true
+    "tags": [],
+    "notes": "Create test organization network",
+    "isBoundToConfigTemplate": false
   }
 }</pre></td>
     </tr>    <tr>
@@ -309,12 +313,22 @@ The following items show how to query failure results from the output:
 Input:
 <pre>{
   "adapterId": "Meraki",
-  "networkName": "Network",
-  "timeZone": "America/New_York",
-  "tags": "tag1 tag2",
-  "type": "appliance switch wireless",
-  "disableMyMerakiCom": true,
-  "disableRemoteStatusPage": false,
+  "networkName": "Test Network",
+  "timeZone": "America/Denver",
+  "tags": [
+    "tag1",
+    "tag2"
+  ],
+  "productTypes": [
+    "appliance",
+    "camera",
+    "cellularGateway",
+    "sensor",
+    "switch",
+    "systemsManager",
+    "wireless"
+  ],
+  "notes": "Notes to associate with the created network",
   "organizationName": "Organization"
 } </pre>
 
@@ -325,19 +339,21 @@ Output:
   "createNetworkSuccess": {
     "icode": "AD.201",
     "response": {
-      "id": "L_627126248111380519",
-      "organizationId": "127026248110254140",
+      "id": "L_627126248111380578",
+      "organizationId": "627126248111354170",
       "productTypes": [
-        "systems manager"
+        "systemsManager"
       ],
-      "url": "https://meraki.com/Network/n/PinukaYb/manage/usage/list",
-      "name": "Pre-Built Test 1",
-      "timeZone": "America/New_York",
+      "url": "https://.meraki.com/Test-Network-e/n/d-oQxbYb/manage/usage/list",
+      "name": "Test Network 1",
+      "timeZone": "America/Denver",
       "enrollmentString": null,
-      "type": "combined",
-      "tags": "tag1 tag2",
-      "disableMyMerakiCom": true,
-      "disableRemoteStatusPage": true
+      "tags": [
+        "tag1",
+        "tag2"
+      ],
+      "notes": "Notes to associate with the created network",
+      "isBoundToConfigTemplate": false
     }
   }
 } </pre>
@@ -351,11 +367,21 @@ Input:
 <pre>{
   "adapterId": "Meraki",
   "networkName": "Network Already Exists",
-  "timeZone": "America/New_York",
-  "tags": "tag1 tag2",
-  "type": "appliance switch wireless",
-  "disableMyMerakiCom": true,
-  "disableRemoteStatusPage": false,
+  "timeZone": "America/Denver",
+  "tags": [
+    "tag1",
+    "tag2"
+  ],
+  "productTypes": [
+    "appliance",
+    "camera",
+    "cellularGateway",
+    "sensor",
+    "switch",
+    "systemsManager",
+    "wireless"
+  ],
+  "notes": "Notes to associate with the created network",
   "organizationName": "Organization"
 } </pre>
 
