@@ -8,7 +8,9 @@
       "name": "Cisco - Meraki - REST - Example",
       "webName": "Cisco Meraki Example Use Cases for Device Provisioning",
       "repoLink": "https://gitlab.com/itentialopensource/pre-built-automations/cisco-meraki-rest-example",
-      "overview": "This Pre-Built Automation bundle contains several example use cases that are applicable when Itential Automation Platform is integrated with a Cisco Meraki controller using the REST API"
+      "overview": "This Pre-Built Automation bundle contains several example use cases that are applicable when Itential Automation Platform is integrated with a Cisco Meraki controller using the REST API",
+      "version": "^1.0.5-2023.1.3",
+      "webLink": "https://www.itential.com/automations/cisco-meraki-example-use-cases-for-device-provisioning/"
     }
   ],
   "adapters": [
@@ -63,31 +65,17 @@
     },
     {
       "name": "tags",
-      "description": "Space separated list of tags to be applied to the network",
-      "exampleValue": "tag1 tag2",
-      "type": "string",
+      "description": "List of tags to be applied to the network",
+      "exampleValue": "[  \"tag1\",  \"tag2\"  ]",
+      "type": "array",
       "required": "yes"
     },
     {
-      "name": "type",
-      "description": "Space separated list of the product type(s) of the new network. If more than one type is included, the network will be a combined network.",
-      "type": "string",
+      "name": "productTypes",
+      "description": "List of the product type(s) of the new network. If more than one type is included, the network will be a combined network.",
+      "type": "array",
       "required": "yes",
-      "exampleValue": "appliance switch wireless"
-    },
-    {
-      "name": "disableMyMerakiCom",
-      "required": "yes",
-      "description": "If set to true will disable mymeraki.com",
-      "type": "boolean",
-      "exampleValue": "true"
-    },
-    {
-      "name": "disableRemoteStatusPage",
-      "type": "boolean",
-      "required": "yes",
-      "description": "If set to true will disable the remote status page",
-      "exampleValue": "false"
+      "exampleValue": "[  \"appliance\",  \"camera\",  \"cellularGateway\",  \"sensor\",  \"switch\",  \"systemsManager\",  \"wireless\"  ]"
     },
     {
       "name": "organizationName",
@@ -95,6 +83,13 @@
       "required": "yes",
       "type": "string",
       "exampleValue": "Organization"
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "required": "yes",
+      "exampleValue": "Note associated with the network created.",
+      "description": "Add any notes or additional information about the network"
     }
   ],
   "outputs": [
@@ -102,7 +97,7 @@
       "name": "createNetworkSuccess",
       "type": "object",
       "description": "Result of creating network in Meraki",
-      "exampleValue": "{   \"icode\": \"AD.201\",   \"response\": {     \"id\": \"L_627126248111380519\",     \"organizationId\": \"127026248110254140\",     \"productTypes\": [       \"systems manager\"     ],     \"url\": \"https://meraki.com/Network/n/PinukaYb/manage/usage/list\",     \"name\": \"Network\",     \"timeZone\": \"America/New_York\",     \"enrollmentString\": null,     \"type\": \"combined\",     \"tags\": \"tag1 tag2\",     \"disableMyMerakiCom\": true,     \"disableRemoteStatusPage\": true   } }"
+      "exampleValue": "{             \"icode\": \"AD.201\",             \"response\": {               \"id\": \"L_627126248111380577\",               \"organizationId\": \"627126248111354170\",               \"productTypes\": [                 \"systemsManager\"               ],               \"url\": \"https://meraki.com/Test-Network-c/n/NcJKHbYb/manage/usage/list\",               \"name\": \"Test Network\",               \"timeZone\": \"America/Chicago\",               \"enrollmentString\": null,               \"tags\": [],               \"notes\": \"Create test organization network\",               \"isBoundToConfigTemplate\": false             }           }"
     },
     {
       "name": "createNetworkError",
@@ -120,11 +115,11 @@
   ],
   "exampleInputsAndOutputs": [
     {
-      "exampleInput": "{\n  \"adapterId\": \"Meraki\",\n  \"networkName\": \"Network\",\n  \"timeZone\": \"America/New_York\",\n  \"tags\": \"tag1 tag2\",\n  \"type\": \"appliance switch wireless\",\n  \"disableMyMerakiCom\": true,\n  \"disableRemoteStatusPage\": false,\n  \"organizationName\": \"Organization\"\n}",
-      "exampleOutput": "{\n  \"createNetworkSuccess\": {\n    \"icode\": \"AD.201\",\n    \"response\": {\n      \"id\": \"L_627126248111380519\",\n      \"organizationId\": \"127026248110254140\",\n      \"productTypes\": [\n        \"systems manager\"\n      ],\n      \"url\": \"https://meraki.com/Network/n/PinukaYb/manage/usage/list\",\n      \"name\": \"Pre-Built Test 1\",\n      \"timeZone\": \"America/New_York\",\n      \"enrollmentString\": null,\n      \"type\": \"combined\",\n      \"tags\": \"tag1 tag2\",\n      \"disableMyMerakiCom\": true,\n      \"disableRemoteStatusPage\": true\n    }\n  }\n}"
+      "exampleInput": "{\n  \"adapterId\": \"Meraki\",\n  \"networkName\": \"Test Network\",\n  \"timeZone\": \"America/Denver\",\n  \"tags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"productTypes\": [\n    \"appliance\",\n    \"camera\",\n    \"cellularGateway\",\n    \"sensor\",\n    \"switch\",\n    \"systemsManager\",\n    \"wireless\"\n  ],\n  \"notes\": \"Notes to associate with the created network\",\n  \"organizationName\": \"Organization\"\n}",
+      "exampleOutput": "{\n  \"createNetworkSuccess\": {\n    \"icode\": \"AD.201\",\n    \"response\": {\n      \"id\": \"L_627126248111380578\",\n      \"organizationId\": \"627126248111354170\",\n      \"productTypes\": [\n        \"systemsManager\"\n      ],\n      \"url\": \"https://.meraki.com/Test-Network-e/n/d-oQxbYb/manage/usage/list\",\n      \"name\": \"Test Network 1\",\n      \"timeZone\": \"America/Denver\",\n      \"enrollmentString\": null,\n      \"tags\": [\n        \"tag1\",\n        \"tag2\"\n      ],\n      \"notes\": \"Notes to associate with the created network\",\n      \"isBoundToConfigTemplate\": false\n    }\n  }\n}"
     },
     {
-      "exampleInput": "{\n  \"adapterId\": \"Meraki\",\n  \"networkName\": \"Network Already Exists\",\n  \"timeZone\": \"America/New_York\",\n  \"tags\": \"tag1 tag2\",\n  \"type\": \"appliance switch wireless\",\n  \"disableMyMerakiCom\": true,\n  \"disableRemoteStatusPage\": false,\n  \"organizationName\": \"Organization\"\n}",
+      "exampleInput": "{\n  \"adapterId\": \"Meraki\",\n  \"networkName\": \"Network Already Exists\",\n  \"timeZone\": \"America/Denver\",\n  \"tags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"productTypes\": [\n    \"appliance\",\n    \"camera\",\n    \"cellularGateway\",\n    \"sensor\",\n    \"switch\",\n    \"systemsManager\",\n    \"wireless\"\n  ],\n  \"notes\": \"Notes to associate with the created network\",\n  \"organizationName\": \"Organization\"\n}",
       "exampleOutput": "{\n  \"createNetworkError\": {\n    \"icode\": \"AD.500\",\n    \"IAPerror\": {\n      \"origin\": \"meraki-connectorRest-handleEndResponse\",\n      \"displayString\": \"Error 400 received on request\",\n      \"recommendation\": \"Verify the request is accurate via debug logs and postman\",\n      \"code\": 400,\n      \"raw_response\": {\n        \"status\": \"success\",\n        \"code\": 400,\n        \"response\": {\n          \"errors\": [\n            \"Name has already been taken\"\n          ]\n        },\n        \"redirects\": 0,\n        \"tripTime\": \"325ms\"\n      }\n    },\n    \"response\": {\n      \"errors\": [\n        \"Name has already been taken\"\n      ]\n    }\n  },\n  \"createNetworkSuccess\": null\n}"
     }
   ],
