@@ -17,7 +17,9 @@
   "domains": [
     "SD-WAN (SASE)"
   ],
-  "tags": [],
+  "tags": [
+    "Cloud Networking"
+  ],
   "useCases": [
     "Onboard, update, manage or remove Devices"
   ],
@@ -44,7 +46,7 @@
     "faqLink": "",
     "contributeLink": "",
     "issueLink": "",
-    "webLink": "",
+    "webLink": "https://www.itential.com/automations/cisco-meraki-modular-automations/",
     "vendorLink": "",
     "productLink": "",
     "apiLinks": [
@@ -60,8 +62,8 @@
       "iapVersions": [
         "2023.1"
       ],
-      "exampleInput": "{\n  \"adapterId\": \"Meraki\",\n  \"networkName\": \"Network\",\n  \"timeZone\": \"America/New_York\",\n  \"tags\": \"tag1 tag2\",\n  \"type\": \"appliance switch wireless\",\n  \"disableMyMerakiCom\": true,\n  \"disableRemoteStatusPage\": false,\n  \"organizationName\": \"Organization\"\n}",
-      "exampleOutput": "{\n  \"createNetworkSuccess\": {\n    \"icode\": \"AD.201\",\n    \"response\": {\n      \"id\": \"L_627126248111380519\",\n      \"organizationId\": \"127026248110254140\",\n      \"productTypes\": [\n        \"systems manager\"\n      ],\n      \"url\": \"https://meraki.com/Network/n/PinukaYb/manage/usage/list\",\n      \"name\": \"Pre-Built Test 1\",\n      \"timeZone\": \"America/New_York\",\n      \"enrollmentString\": null,\n      \"type\": \"combined\",\n      \"tags\": \"tag1 tag2\",\n      \"disableMyMerakiCom\": true,\n      \"disableRemoteStatusPage\": true\n    }\n  }\n}"
+      "exampleInput": "{\n  \"adapterId\": \"Meraki\",\n  \"networkName\": \"Test Network\",\n  \"timeZone\": \"America/Denver\",\n  \"tags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"productTypes\": [\n    \"appliance\",\n    \"camera\",\n    \"cellularGateway\",\n    \"sensor\",\n    \"switch\",\n    \"systemsManager\",\n    \"wireless\"\n  ],\n  \"notes\": \"Notes to associate with the created network\",\n  \"organizationName\": \"Organization\"\n}",
+      "exampleOutput": "{\n  \"createNetworkSuccess\": {\n    \"icode\": \"AD.201\",\n    \"response\": {\n      \"id\": \"L_627126248111380578\",\n      \"organizationId\": \"627126248111354170\",\n      \"productTypes\": [\n        \"systemsManager\"\n      ],\n      \"url\": \"https://.meraki.com/Test-Network-e/n/d-oQxbYb/manage/usage/list\",\n      \"name\": \"Test Network 1\",\n      \"timeZone\": \"America/Denver\",\n      \"enrollmentString\": null,\n      \"tags\": [\n        \"tag1\",\n        \"tag2\"\n      ],\n      \"notes\": \"Notes to associate with the created network\",\n      \"isBoundToConfigTemplate\": false\n    }\n  }\n}"
     },
     {
       "name": "Claim Network Devices - Meraki - REST",
@@ -103,9 +105,9 @@
         "isDependency": false,
         "repoLink": "https://gitlab.com/itentialopensource/pre-built-automations/cisco-meraki-rest-example",
         "docLink": "",
-        "webLink": "",
+        "webLink": "https://www.itential.com/automations/cisco-meraki-example-use-cases-for-device-provisioning/",
         "versions": [
-          ""
+          "^1.0.5-2023.1.3"
         ]
       }
     ]
