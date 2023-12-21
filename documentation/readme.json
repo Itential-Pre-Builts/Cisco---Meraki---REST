@@ -2,7 +2,9 @@
   "domains": [
     "SD-WAN (SASE)"
   ],
-  "tags": [],
+  "tags": [
+    "Cloud Networking"
+  ],
   "useCases": [
     "Onboard, update, manage or remove Devices"
   ],
@@ -33,6 +35,6 @@
   "faqLink": "",
   "contributeLink": "",
   "webName": "Cisco Meraki Modular Automations",
-  "webLink": "",
+  "webLink": "https://www.itential.com/automations/cisco-meraki-modular-automations/",
   "demoLinks": []
 }
