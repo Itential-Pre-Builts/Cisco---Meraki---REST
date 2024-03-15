@@ -2,7 +2,7 @@
   "name": "Cisco - Meraki - REST",
   "webName": "Cisco Meraki Modular Automations",
   "type": "Workflow Project",
-  "vendor": "Cisco",
+  "vendor": "Cisco Systems",
   "product": "Meraki",
   "method": "REST",
   "osVersions": [
@@ -24,17 +24,7 @@
     "Onboard, update, manage or remove Devices"
   ],
   "deprecated": {
-    "isDeprecated": false,
-    "replacedBy": {
-      "isProductFeature": false,
-      "name": "",
-      "overview": "",
-      "repoLink": "",
-      "docLink": "",
-      "webLink": ""
-    },
-    "deprecatedOn": "",
-    "endOfLife": ""
+    "isDeprecated": false
   },
   "brokerSince": "",
   "documentation": {
@@ -43,15 +33,14 @@
     "npmLink": "https://www.npmjs.com/package/@itentialopensource/cisco-meraki-rest",
     "docLink": "",
     "demoLinks": [],
+    "trainingLinks": [],
     "faqLink": "",
     "contributeLink": "",
     "issueLink": "",
     "webLink": "https://www.itential.com/automations/cisco-meraki-modular-automations/",
-    "vendorLink": "",
+    "vendorLink": "https://www.cisco.com",
     "productLink": "",
-    "apiLinks": [
-      "https://developer.cisco.com/meraki/api/"
-    ]
+    "apiLinks": []
   },
   "assets": [
     {
