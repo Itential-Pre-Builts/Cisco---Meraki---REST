@@ -1,4 +1,12 @@
 
+## 1.0.4 [03-15-2024]
+
+* Update file readme.json for metadata changes
+
+See merge request itentialopensource/pre-built-automations/cisco-meraki-rest!9
+
+---
+
 ## 1.0.3 [12-21-2023]
 
 * Updates README documentation
@@ -70,4 +78,4 @@ See merge request itentialopensource/pre-built-automations/pre-built-template-20
 See merge request itentialopensource/pre-built-automations/pre-built-template-2023-1!1
 
 ---
-\n\n\n\n\n\n\n\n\n
+\n\n\n\n\n\n\n\n\n\n

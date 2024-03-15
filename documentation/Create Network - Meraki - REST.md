@@ -15,7 +15,7 @@
     - [Entry Point IAP Component](#entry-point-iap-component)
     - [Inputs](#inputs)
     - [Outputs](#outputs)
-    - [Related Documentation](#related-documentation)
+    - [API Links](#api-links)
     - [Example Inputs and Outputs](#example-inputs-and-outputs)
   - [Support](#support)
 
@@ -285,23 +285,11 @@ The following items show how to query failure results from the output:
   
 
 
-### Related Documentation
+### API Links
 
-<table>
-  <thead>
-    <tr>
-      <th>Documentation Link</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://developer.cisco.com/meraki/api-v1/create-organization-network/">Create Organization Network - Meraki</a></td>
-      <td>Meraki API documentation for creating an organization network</td>
-    </tr>
-  </tbody>
-</table>
 
+No API Links provided.
+ 
 
 
 ### Example Inputs and Outputs
