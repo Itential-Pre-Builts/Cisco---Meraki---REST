@@ -12,17 +12,7 @@
     "https://developer.cisco.com/meraki/api/"
   ],
   "deprecated": {
-    "isDeprecated": false,
-    "replacedBy": {
-      "isProductFeature": false,
-      "name": "",
-      "overview": "",
-      "repoLink": "",
-      "docLink": "",
-      "webLink": ""
-    },
-    "deprecatedOn": "",
-    "endOfLife": ""
+    "isDeprecated": false
   },
   "name": "Cisco - Meraki - REST",
   "overview": "The integration of Itential and the Cisco Meraki solution enables network teams to utilize its REST API to build automations that can include common tasks for provisioning and device management. This is a library of related automations that can be used as modular components in your own larger, end-to-end workflows.",
@@ -31,10 +21,12 @@
   "docLink": "",
   "issueLink": "",
   "type": "Workflow Project",
-  "vendorLink": "",
+  "vendorLink": "https://www.cisco.com",
   "faqLink": "",
   "contributeLink": "",
   "webName": "Cisco Meraki Modular Automations",
   "webLink": "https://www.itential.com/automations/cisco-meraki-modular-automations/",
-  "demoLinks": []
+  "demoLinks": [],
+  "vendor": "Cisco Systems",
+  "product": "Meraki"
 }
