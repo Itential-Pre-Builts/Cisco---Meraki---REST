@@ -15,8 +15,9 @@
     - [Entry Point IAP Component](#entry-point-iap-component)
     - [Inputs](#inputs)
     - [Outputs](#outputs)
-    - [API Links](#api-links)
+    - [Query Output](#query-output)
     - [Example Inputs and Outputs](#example-inputs-and-outputs)
+    - [API Links](#api-links)
   - [Support](#support)
 
 ## Overview
@@ -25,6 +26,9 @@ This is a modular workflow that automates the process of claiming a new network 
 
 Capabilities include:
 - The workflow is used to claim a device into a network
+
+
+
 
 
 ## Getting Started
@@ -101,7 +105,7 @@ While Itential tests this Workflow Project and its capabilities, it is often the
 
 ### Entry Point IAP Component
 
-The primary IAP component to run this Workflow Project is listed below:
+The primary IAP component to run **Claim Network Devices - Meraki - REST** is listed below:
 
 <table>
   <thead>
@@ -119,7 +123,7 @@ The primary IAP component to run this Workflow Project is listed below:
 
 ### Inputs
 
-The following table lists the inputs to the Workflow Project:
+The following table lists the inputs for **Claim Network Devices - Meraki - REST**:
 
 <table>
   <thead>
@@ -161,7 +165,7 @@ The following table lists the inputs to the Workflow Project:
 
 ### Outputs
 
-The following table lists the outputs of the Workflow Project:
+The following table lists the outputs for **Claim Network Devices - Meraki - REST**:
 
 <table>
   <thead>
@@ -214,31 +218,28 @@ The following table lists the outputs of the Workflow Project:
   </tbody>
 </table>
 
+
+
+### Query Output
+
+
   
-#### Query Output
-    
 
 No object to query upon success
 
-    
-    
-The following items show how to query failure results from the output:
+  
+  
+The following items show how to query failure results from the output of **Claim Network Devices - Meraki - REST**:
 
-      
-##### Error Response Message
+    
+#### Error Response Message
 
 `claimNetworkDevicesError.response.errors[0]`
 
-      
     
   
 
 
-### API Links
-
-
-No API Links provided.
- 
 
 
 ### Example Inputs and Outputs
@@ -310,6 +311,12 @@ Output:
   
 
 
+### API Links
+
+
+No API Links provided.
+
+
 ## Support
 
-Please use your Itential Customer Success account if you need support when using this Workflow Project.
+Please use your Itential Customer Success account if you need support when using **Claim Network Devices - Meraki - REST**.
