@@ -15,10 +15,10 @@ The integration of Itential and the Cisco Meraki solution enables network teams 
   </thead>
   <tbody>
     <tr>
-      <td><a href='https://gitlab.com/itentialopensource/pre-built-automations/cisco-meraki-rest/-/blob/master/documentation/Create Network - Meraki - REST.md' target='_blank'>Create Network - Meraki - REST</a></td>
+      <td>Create Network - Meraki - REST</td>
       <td>This is a modular workflow that automates the creation of a new network.</td>
     </tr>    <tr>
-      <td><a href='https://gitlab.com/itentialopensource/pre-built-automations/cisco-meraki-rest/-/blob/master/documentation/Claim Network Devices - Meraki - REST.md' target='_blank'>Claim Network Devices - Meraki - REST</a></td>
+      <td>Claim Network Devices - Meraki - REST</td>
       <td>This is a modular workflow that automates the process of claiming a new network device.</td>
     </tr>
   </tbody>

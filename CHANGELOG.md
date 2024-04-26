@@ -1,4 +1,14 @@
 
+## 1.0.6 [04-26-2024]
+
+Update IAP Cypress Testing Library version
+
+See merge request itentialopensource/pre-built-automations/cisco-meraki-rest!11
+
+2024-04-26 15:19:06 +0000
+
+---
+
 ## 1.0.5 [04-03-2024]
 
 Regenerate documentation and metadata.json files
@@ -88,4 +98,4 @@ See merge request itentialopensource/pre-built-automations/pre-built-template-20
 See merge request itentialopensource/pre-built-automations/pre-built-template-2023-1!1
 
 ---
-\n\n\n\n\n\n\n\n\n\n\n
+\n\n\n\n\n\n\n\n\n\n\n\n
