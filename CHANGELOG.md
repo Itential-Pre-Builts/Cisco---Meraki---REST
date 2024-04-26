@@ -1,4 +1,14 @@
 
+## 1.0.7-2023.2.0 [04-26-2024]
+
+Regenerate documentation and metadata.json files
+
+See commit 1d9d4e3
+
+2024-04-26 15:25:08 +0000
+
+---
+
 ## 1.0.6 [04-26-2024]
 
 Update IAP Cypress Testing Library version
@@ -98,4 +108,4 @@ See merge request itentialopensource/pre-built-automations/pre-built-template-20
 See merge request itentialopensource/pre-built-automations/pre-built-template-2023-1!1
 
 ---
-\n\n\n\n\n\n\n\n\n\n\n\n
+\n\n\n\n\n\n\n\n\n\n\n\n\n
