@@ -28,7 +28,7 @@ While these can be utilized, you may find more value in using them as a starting
 
 Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Cisco - Meraki - REST** has been tested with:
 
-- IAP **2023.1**
+- IAP **2023.2**
 
 ### External Dependencies
 
@@ -86,7 +86,7 @@ While Itential tests this Example Project and its capabilities, it is often the 
 ## Using this Workflow Project
 Workflow Projects contain 1 or more workflows. Each of these workflows have different inputs and outputs. 
 
-### Claim Network Devices - Meraki - REST
+### <ins>Claim Network Devices - Meraki - REST</ins>
 This is a modular workflow that automates the process of claiming a new network device.
 
 Capabilities include:
@@ -312,7 +312,9 @@ Output:
 No API Links provided.
 
 
-### Create Network - Meraki - REST
+
+---
+### <ins>Create Network - Meraki - REST</ins>
 This is a modular workflow that automates the creation of a new network.
 
 Capabilities include:
@@ -637,6 +639,8 @@ Output:
 No API Links provided.
 
 
+
+---
 ## Additional Information
 
 ### Support

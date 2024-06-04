@@ -1,4 +1,14 @@
 
+## 1.0.8-2023.2.1 [06-04-2024]
+
+Update IAP version in asset documentation
+
+See merge request itentialopensource/pre-built-automations/cisco-meraki-rest!16
+
+2024-06-04 20:17:34 +0000
+
+---
+
 ## 1.0.7-2023.2.0 [04-26-2024]
 
 Regenerate documentation and metadata.json files
@@ -108,4 +118,4 @@ See merge request itentialopensource/pre-built-automations/pre-built-template-20
 See merge request itentialopensource/pre-built-automations/pre-built-template-2023-1!1
 
 ---
-\n\n\n\n\n\n\n\n\n\n\n\n\n
+\n\n\n\n\n\n\n\n\n\n\n\n\n\n

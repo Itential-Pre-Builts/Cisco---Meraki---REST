@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "@itentialopensource/cisco-meraki-rest",
-    "version": "1.0.7-2023.2.0",
+    "version": "1.0.8-2023.2.1",
     "description": "This Pre-Built Automation bundle contains use cases around Cisco Meraki",
     "license": "Apache-2.0",
     "repository": {
