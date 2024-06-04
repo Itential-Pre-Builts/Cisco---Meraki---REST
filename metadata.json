@@ -12,7 +12,7 @@
     "v1"
   ],
   "iapVersions": [
-    "2023.1"
+    "2023.2"
   ],
   "domains": [
     "SD-WAN (SASE)"
@@ -49,7 +49,7 @@
       "assetType": "Workflow",
       "overview": "This is a modular workflow that automates the creation of a new network.",
       "iapVersions": [
-        "2023.1"
+        "2023.2"
       ],
       "exampleInput": "{\n  \"adapterId\": \"Meraki\",\n  \"networkName\": \"Test Network\",\n  \"timeZone\": \"America/Denver\",\n  \"tags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"productTypes\": [\n    \"appliance\",\n    \"camera\",\n    \"cellularGateway\",\n    \"sensor\",\n    \"switch\",\n    \"systemsManager\",\n    \"wireless\"\n  ],\n  \"notes\": \"Notes to associate with the created network\",\n  \"organizationName\": \"Organization\"\n}",
       "exampleOutput": "{\n  \"createNetworkSuccess\": {\n    \"icode\": \"AD.201\",\n    \"response\": {\n      \"id\": \"L_627126248111380578\",\n      \"organizationId\": \"627126248111354170\",\n      \"productTypes\": [\n        \"systemsManager\"\n      ],\n      \"url\": \"https://.meraki.com/Test-Network-e/n/d-oQxbYb/manage/usage/list\",\n      \"name\": \"Test Network 1\",\n      \"timeZone\": \"America/Denver\",\n      \"enrollmentString\": null,\n      \"tags\": [\n        \"tag1\",\n        \"tag2\"\n      ],\n      \"notes\": \"Notes to associate with the created network\",\n      \"isBoundToConfigTemplate\": false\n    }\n  }\n}"
@@ -60,7 +60,7 @@
       "assetType": "Workflow",
       "overview": "This is a modular workflow that automates the process of claiming a new network device.",
       "iapVersions": [
-        "2023.1"
+        "2023.2"
       ],
       "exampleInput": "{\n  \"networkId\": \"L_427115228141788519\",\n  \"adapterId\": \"Meraki\",\n  \"serials\": [\"A1B2-C3D4-E4F5\",  \"1111-2222-3333\"]\n}",
       "exampleOutput": "{   \n  \"icode\": \"AD.200\", \n  \"response\": \"\" \n}"
