@@ -18,15 +18,18 @@
     "SD-WAN (SASE)"
   ],
   "tags": [
-    "Cloud Networking"
+    "Software Upgrades & Device Maintenance"
   ],
   "useCases": [
-    "Onboard, update, manage or remove Devices"
+    "Cloud Managed Networks",
+    "Device Onboarding"
   ],
   "deprecated": {
     "isDeprecated": false
   },
   "brokerSince": "",
+  "supportLevel": "community",
+  "techAlliance": false,
   "documentation": {
     "storeLink": "",
     "repoLink": "https://gitlab.com/itentialopensource/pre-built-automations/cisco-meraki-rest",
@@ -40,7 +43,16 @@
     "webLink": "https://www.itential.com/automations/cisco-meraki-modular-automations/",
     "vendorLink": "https://www.cisco.com",
     "productLink": "",
-    "apiLinks": []
+    "apiLinks": [],
+    "workshopHomePage": "https://www.itential.com/get-started/",
+    "workshopLinks": [
+      {
+        "title": "Create/Update Change Request (ServiceNow)"
+      },
+      {
+        "title": "Create/Update Incident (ServiceNow)"
+      }
+    ]
   },
   "assets": [
     {
