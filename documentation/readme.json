@@ -1,12 +1,22 @@
 {
+  "name": "Cisco - Meraki - REST",
+  "webName": "Cisco Meraki Modular Automations",
+  "supportLevel": "community",
+  "overview": "The integration of Itential and the Cisco Meraki solution enables network teams to utilize its REST API to build automations that can include common tasks for provisioning and device management. This is a library of related automations that can be used as modular components in your own larger, end-to-end workflows.",
+  "vendor": "Cisco Systems",
+  "product": "Meraki",
+  "techAlliance": false,
+  "method": "REST",
+  "type": "Workflow Project",
   "domains": [
     "SD-WAN (SASE)"
   ],
   "tags": [
-    "Cloud Networking"
+    "Software Upgrades & Device Maintenance"
   ],
   "useCases": [
-    "Onboard, update, manage or remove Devices"
+    "Cloud Managed Networks",
+    "Device Onboarding"
   ],
   "apiLinks": [
     "https://developer.cisco.com/meraki/api/"
@@ -14,19 +24,22 @@
   "deprecated": {
     "isDeprecated": false
   },
-  "name": "Cisco - Meraki - REST",
-  "overview": "The integration of Itential and the Cisco Meraki solution enables network teams to utilize its REST API to build automations that can include common tasks for provisioning and device management. This is a library of related automations that can be used as modular components in your own larger, end-to-end workflows.",
   "productLink": "",
   "storeLink": "",
   "docLink": "",
   "issueLink": "",
-  "type": "Workflow Project",
   "vendorLink": "https://www.cisco.com",
   "faqLink": "",
   "contributeLink": "",
-  "webName": "Cisco Meraki Modular Automations",
   "webLink": "https://www.itential.com/automations/cisco-meraki-modular-automations/",
   "demoLinks": [],
-  "vendor": "Cisco Systems",
-  "product": "Meraki"
+  "workshopHomePage": "https://www.itential.com/get-started/",
+  "workshopLinks": [
+    {
+      "title": "Create/Update Change Request (ServiceNow)"
+    },
+    {
+      "title": "Create/Update Incident (ServiceNow)"
+    }
+  ]
 }
